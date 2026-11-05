@@ -1,0 +1,79 @@
+name: Daily Briefing
+
+on:
+  schedule:
+    - cron: "0 22 * * *" # 06:00 Asia/Manila
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Generate without updating the seen ledger"
+        type: boolean
+        default: false
+      only:
+        description: "Optional comma list: news,podcasts,articles,forums,features"
+        type: string
+        default: ""
+
+permissions:
+  contents: read # the dedup ledger lives in a Gist, so the repo is never written to
+
+concurrency:
+  group: daily-briefing
+  cancel-in-progress: false
+
+jobs:
+  brief:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      BRIEFING_GIST_ID: ${{ secrets.BRIEFING_GIST_ID }}
+      BRIEFING_GIST_TOKEN: ${{ secrets.BRIEFING_GIST_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+
+      - name: Install
+        run: uv sync --frozen --no-dev
+
+      - name: Check secrets
+        run: |
+          missing=0
+          for s in ANTHROPIC_API_KEY BRIEFING_GIST_ID BRIEFING_GIST_TOKEN; do
+            if [ -z "${!s}" ]; then echo "::error::Missing repository secret $s"; missing=1; fi
+          done
+          exit $missing
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+
+      - name: Generate briefing
+        run: |
+          args=(run --config config/briefing.yaml --out output)
+          [ "${{ inputs.dry_run }}" = "true" ] && args+=(--dry-run)
+          [ -n "${{ inputs.only }}" ] && args+=(--only "${{ inputs.only }}")
+          uv run --no-dev python -m daily_briefing "${args[@]}"
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+
+      - name: Add briefing to job summary
+        if: always()
+        run: |
+          f=$(ls output/briefing-*.md 2>/dev/null | head -1)
+          [ -n "$f" ] && head -c 900000 "$f" >> "$GITHUB_STEP_SUMMARY" || true
+
+      - name: Upload briefing artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: briefing-${{ github.run_number }}
+          path: |
+            output/briefing-*.md
+            output/briefing-*.json
+          if-no-files-found: error
+          retention-days: 90
+
+      # Runs only after the artifact uploaded, so a failed run never "uses up" items.
+      - name: Save seen ledger to Gist
+        if: ${{ success() && inputs.dry_run != true && (inputs.only == '' || inputs.only == null) }}
+        run: uv run --no-dev python -m daily_briefing commit-state --pending output/.pending-seen.json

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<channel>
+  <title>Example Pod</title>
+  <link>https://pod.example.com</link>
+  <itunes:author>Pod Hosts</itunes:author>
+  <itunes:image href="https://pod.example.com/art.jpg"/>
+  <item>
+    <title>101: Talking CSS with Jane Doe</title>
+    <link>https://pod.example.com/101</link>
+    <guid isPermaLink="false">ep-101</guid>
+    <pubDate>Tue, 04 Nov 2025 10:00:00 GMT</pubDate>
+    <itunes:duration>01:12:30</itunes:duration>
+    <itunes:episode>101</itunes:episode>
+    <itunes:season>3</itunes:season>
+    <itunes:explicit>no</itunes:explicit>
+    <enclosure url="https://cdn.example.com/101.mp3" type="audio/mpeg" length="1"/>
+    <content:encoded><![CDATA[<p>We talk about CSS.</p><p>00:00 Intro</p>]]></content:encoded>
+  </item>
+  <item>
+    <title>90: Ancient episode</title>
+    <guid>ep-90</guid>
+    <pubDate>Mon, 01 Sep 2025 10:00:00 GMT</pubDate>
+    <itunes:duration>2700</itunes:duration>
+    <enclosure url="https://cdn.example.com/90.mp3" type="audio/mpeg" length="1"/>
+  </item>
+</channel>
+</rss>

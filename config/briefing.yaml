@@ -1,0 +1,66 @@
+# Daily Briefing configuration. See spec.md §4 for the full schema.
+version: 1
+
+settings:
+  timezone: Asia/Manila
+  model: claude-sonnet-5-5
+  thinking: between_tools        # between_tools | adaptive | omit (use omit for models older than Sonnet 5.5)
+  effort: medium                 # low | medium | high
+  # pricing: { input_per_mtok: 2.0, output_per_mtok: 10.0 }   # only needed for models not in the built-in table
+  max_items_per_source: 10
+  default_lookback_days: 2
+  summary_length: short          # short | medium
+  dedup_retention_days: 120
+  budget:
+    max_usd_per_run: 1.00
+
+news:
+  - name: BBC News – Top Stories
+    url: https://feeds.bbci.co.uk/news/rss.xml
+  - name: BBC News – Technology
+    url: https://feeds.bbci.co.uk/news/technology/rss.xml
+  - name: The New York Times – Home Page
+    url: https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml
+  - name: The New York Times – Technology
+    url: https://rss.nytimes.com/services/xml/rss/nyt/Technology.xml
+
+podcasts:
+  - name: Syntax – Tasty Treats for Web Developers
+    url: https://syntax.fm                 # feed auto-discovered from the website
+    hosts: [Wes Bos, Scott Tolinski, CJ Reynolds]
+    window: { lookback_days: 7 }
+  - name: Soft Skills Engineering
+    url: https://softskills.audio
+    window: { lookback_days: 7 }
+
+articles:
+  - name: claude.dev – Tips, tricks, and POVs from Anthropic's developers
+    url: https://claude.dev/rss.xml
+    lookback_days: 30              # posts every week or two; dedup prevents repeats
+  - name: OpenAI News
+    url: https://openai.com/news/rss.xml
+    lookback_days: 7
+
+forums:
+  - name: Hacker News – Top
+    type: hackernews
+    feed: top
+    min_points: 100
+    max_items: 15
+  - name: Hacker News – AI
+    type: hackernews
+    feed: top
+    keywords: [AI, LLM, LLMs, Claude, Anthropic, OpenAI, GPT, agent, agents, model, models]
+    min_points: 30
+    max_items: 10
+
+features:
+  - name: Davao Food & Café Pick
+    type: local_food
+    location: Davao City, Philippines
+    freshness_days: 365
+    count: 1
+    criteria: >
+      A well-regarded café or restaurant that is currently operating, with at least
+      one review, article, or social post from the last 12 months. Prefer local or
+      independent spots. Include what to order, price range, address, and hours if available.

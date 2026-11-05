@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/">
+<channel>
+  <title>Example News</title>
+  <item>
+    <title>Fresh story</title>
+    <link>https://www.example.com/news/fresh?at_medium=RSS&amp;utm_source=x</link>
+    <description><![CDATA[<p>Something <b>happened</b> today.</p>]]></description>
+    <pubDate>Wed, 05 Nov 2025 01:00:00 GMT</pubDate>
+    <media:thumbnail url="https://img.example.com/fresh.jpg"/>
+  </item>
+  <item>
+    <title>Older story</title>
+    <link>https://www.example.com/news/older</link>
+    <description>Old news.</description>
+    <pubDate>Sat, 01 Nov 2025 01:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>AI breakthrough announced</title>
+    <link>https://www.example.com/news/ai</link>
+    <description>A new LLM was released.</description>
+    <pubDate>Tue, 04 Nov 2025 20:00:00 GMT</pubDate>
+  </item>
+</channel>
+</rss>
