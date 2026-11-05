@@ -4,9 +4,9 @@ Scrapes the news, shows my favorite podcasts, and shares new relevant articles r
 Davao City food/café pick. It runs daily in GitHub Actions, uses Claude to summarize, and publishes to GitHub Pages
 as an RSS feed (plus a Markdown artifact).
 
-- **Feed:** https://jlawcordova.github.io/daily-briefing/feed.xml (full briefing in each item)
-- **Latest (Markdown):** https://jlawcordova.github.io/daily-briefing/latest.md
-- **Archive:** https://jlawcordova.github.io/daily-briefing/ (last 30 days)
+- **Feed:** https://jlawcordova.com/daily-briefing/feed.xml (full briefing in each item)
+- **Latest (Markdown):** https://jlawcordova.com/daily-briefing/latest.md
+- **Archive:** https://jlawcordova.com/daily-briefing/ (last 30 days)
 
 - **Why:** [`intent.md`](intent.md)
 - **How:** [`spec.md`](spec.md)
