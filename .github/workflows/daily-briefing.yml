@@ -16,6 +16,8 @@ on:
 
 permissions:
   contents: read # the dedup ledger lives in a Gist, so the repo is never written to
+  pages: write # publish the briefing + RSS feed to GitHub Pages
+  id-token: write # required by actions/deploy-pages
 
 concurrency:
   group: daily-briefing
@@ -25,6 +27,9 @@ jobs:
   brief:
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
     env:
       BRIEFING_GIST_ID: ${{ secrets.BRIEFING_GIST_ID }}
       BRIEFING_GIST_TOKEN: ${{ secrets.BRIEFING_GIST_TOKEN }}
@@ -73,7 +78,30 @@ jobs:
           if-no-files-found: error
           retention-days: 90
 
-      # Runs only after the artifact uploaded, so a failed run never "uses up" items.
+      # Pages deploys replace the whole site, so `publish` first pulls the earlier briefings
+      # from the live site (index.json) and rebuilds the archive + feed.xml around today's one.
+      # Skipped for dry/partial runs, which are treated as tests.
+      - name: Configure Pages
+        id: pages
+        if: ${{ inputs.dry_run != true && (inputs.only == '' || inputs.only == null) }}
+        uses: actions/configure-pages@v5
+
+      - name: Build site
+        if: ${{ steps.pages.outcome == 'success' }}
+        run: uv run --no-dev python -m daily_briefing publish --out output --site site --base-url "${{ steps.pages.outputs.base_url }}"
+
+      - name: Upload Pages artifact
+        if: ${{ steps.pages.outcome == 'success' }}
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+      - name: Deploy to GitHub Pages
+        id: deploy
+        if: ${{ steps.pages.outcome == 'success' }}
+        uses: actions/deploy-pages@v4
+
+      # Runs only after the artifact uploaded and the site deployed, so a failed run never "uses up" items.
       - name: Save seen ledger to Gist
         if: ${{ success() && inputs.dry_run != true && (inputs.only == '' || inputs.only == null) }}
         run: uv run --no-dev python -m daily_briefing commit-state --pending output/.pending-seen.json

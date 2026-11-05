@@ -13,7 +13,7 @@ config/briefing.yaml ──► Collectors (deterministic fetch) ──► Dedup 
                                                                                      │
                                          output/briefing-YYYY-MM-DD.md ◄── Renderer ◄┘
                                                     │
-                                    GitHub Actions artifact + updated ledger written back to Gist
+                                    Actions artifact + GitHub Pages RSS feed + ledger written back to Gist
 ```
 
 **Design principle: a hybrid pipeline.** Anything with a structured source (RSS/Atom, the iTunes Lookup API, the HN API) is fetched deterministically in code. This is cheap and reliable. Claude is used for:
@@ -438,13 +438,19 @@ Sections with no new items show "Nothing new since the last briefing."
 3. **Generate briefing**: `python -m daily_briefing run --config config/briefing.yaml --out output`, plus `--dry-run` / `--only` from the `workflow_dispatch` inputs.
 4. **Job summary**: the Markdown is also added to the run's summary page so it can be read without downloading.
 5. **Upload artifact** `briefing-<run number>` containing `briefing-*.md` and `briefing-*.json`, kept for 90 days.
-6. **Save seen ledger to Gist**: `commit-state`, only if everything above succeeded, it isn't a dry run, and `--only` wasn't used. A partial run is treated as a test.
+6. **Publish to GitHub Pages** (skipped for dry/partial runs): `python -m daily_briefing publish --base-url <pages url>`
+   builds `site/` and `actions/deploy-pages` deploys it. Because a deploy replaces the whole site, `publish` first reads
+   the live `index.json` and downloads each earlier `briefings/<date>.md`, then rebuilds the archive (last 30) around
+   today's briefing (a same-day re-run replaces that day). The site contains `feed.xml` (RSS 2.0, full HTML in
+   `content:encoded`), `latest.md`, `index.html`, `index.json`, and `briefings/<date>.{md,html}`. Raw HTML from sources
+   is escaped. Nothing is written to the repository.
+7. **Save seen ledger to Gist**: `commit-state`, only if everything above succeeded, it isn't a dry run, and `--only` wasn't used. A partial run is treated as a test.
 
-Triggers: `schedule: "0 22 * * *"` (06:00 Asia/Manila) and `workflow_dispatch`. `permissions: contents: read`. A `concurrency` group keeps runs from overlapping.
+Triggers: `schedule: "0 22 * * *"` (06:00 Asia/Manila) and `workflow_dispatch`. `permissions: contents: read, pages: write, id-token: write`; the job runs in the `github-pages` environment. A `concurrency` group keeps runs from overlapping.
 
 **Required repo secrets:** `ANTHROPIC_API_KEY`, `BRIEFING_GIST_ID`, `BRIEFING_GIST_TOKEN`.
 
-The ledger write in §7 happens in a final CLI step, `python -m daily_briefing commit-state`, which runs only after the upload step succeeds. The `run` step writes the new ids to `output/.pending-seen.json`, and `commit-state` merges them into the Gist ledger. This keeps the "consume only after the artifact is uploaded" rule true.
+The ledger write in §7 happens in a final CLI step, `python -m daily_briefing commit-state`, which runs only after the upload and Pages deploy succeed. The `run` step writes the new ids to `output/.pending-seen.json`, and `commit-state` merges them into the Gist ledger. This keeps the "consume only after the artifact is uploaded" rule true.
 
 Also: `ci.yml` runs `ruff check`, `ruff format --check`, `pytest`, and `validate` on PRs and pushes to main.
 
@@ -454,6 +460,7 @@ Also: `ci.yml` runs `ruff check`, `ruff format --check`, `pytest`, and `validate
 python -m daily_briefing run [--config PATH] [--out DIR] [--dry-run] [--commit] [--ignore-seen]
                              [--only news,podcasts,articles,forums,features] [--no-ai]
 python -m daily_briefing commit-state [--config PATH] [--pending output/.pending-seen.json]
+python -m daily_briefing publish --base-url URL [--out output] [--site site] [--keep 30] [--no-history]
 python -m daily_briefing validate [--config PATH]
 ```
 
@@ -496,7 +503,7 @@ All 8 milestones are implemented. The live Claude path still needs to be confirm
 | "Claude.dev" | `https://claude.dev` ("Sharing tips, tricks, and POVs from Anthropic's developers"). It has an RSS feed at `/rss.xml`, so no agent scraping is needed. |
 | Schedule | Daily at 06:00 Asia/Manila (`cron: 0 22 * * *` UTC). |
 | Dedup ledger storage | Private GitHub Gist (§7). |
-| Delivery | GitHub Actions artifact only (also shown in the run's job summary). |
+| Delivery | RSS feed + static archive on GitHub Pages (artifacts need a GitHub sign-in, so Claude couldn't read them). Also the Actions artifact and job summary. |
 | Default model | `claude-sonnet-5-5`. `claude-sonnet-4-5` reaches end-of-life on 2026-11-30, so it isn't used. |
 | Web tool versions | Basic `web_search_20250305` / `web_fetch_20250910`. The newer "dynamic filtering" versions run code on the API side and make costs harder to predict, so they aren't used. |
 

@@ -1,8 +1,12 @@
 # daily-briefing
 
 Scrapes the news, shows my favorite podcasts, and shares new relevant articles related to AI development, plus a
-Davao City food/café pick. It runs daily in GitHub Actions, uses Claude to summarize, and publishes a Markdown
-artifact.
+Davao City food/café pick. It runs daily in GitHub Actions, uses Claude to summarize, and publishes to GitHub Pages
+as an RSS feed (plus a Markdown artifact).
+
+- **Feed:** https://jlawcordova.github.io/daily-briefing/feed.xml (full briefing in each item)
+- **Latest (Markdown):** https://jlawcordova.github.io/daily-briefing/latest.md
+- **Archive:** https://jlawcordova.github.io/daily-briefing/ (last 30 days)
 
 - **Why:** [`intent.md`](intent.md)
 - **How:** [`spec.md`](spec.md)
@@ -13,9 +17,12 @@ artifact.
 1. Create a **private Gist** with a file `seen.json` containing `{"version":1,"items":{},"features":{},"feeds":{}}`.
 2. Create a GitHub token with **only** the `gist` scope.
 3. Add repository secrets: `ANTHROPIC_API_KEY`, `BRIEFING_GIST_ID` (the id in the Gist URL), `BRIEFING_GIST_TOKEN`.
-4. The **Daily Briefing** workflow runs at 06:00 Asia/Manila. To run it by hand: Actions → Daily Briefing → Run workflow
+4. Enable Pages: Settings → Pages → Source: **GitHub Actions**
+   (or `gh api -X POST repos/OWNER/REPO/pages -f build_type=workflow`).
+5. The **Daily Briefing** workflow runs at 06:00 Asia/Manila. To run it by hand: Actions → Daily Briefing → Run workflow
    (tick *dry run* to test without updating the ledger).
-5. Open the run, then read the briefing in the job summary or download the `briefing-N` artifact (`.md` + `.json`).
+6. Read the briefing in the RSS feed / Pages site, the run's job summary, or the `briefing-N` artifact. Dry runs and
+   `only` runs don't publish to Pages.
 
 ## Editing sources
 

@@ -1,4 +1,4 @@
-"""CLI: python -m daily_briefing {run,commit-state,validate}."""
+"""CLI: python -m daily_briefing {run,commit-state,publish,validate}."""
 
 from __future__ import annotations
 
@@ -113,6 +113,27 @@ def cmd_commit_state(args) -> int:
     return 0
 
 
+def cmd_publish(args) -> int:
+    from .publish import build_site
+    from .util import make_client
+
+    with make_client() as client:
+        try:
+            entries = build_site(
+                Path(args.out),
+                Path(args.site),
+                args.base_url,
+                keep=args.keep,
+                client=None if args.no_history else client,
+            )
+        except FileNotFoundError as e:
+            print(str(e), file=sys.stderr)
+            return 1
+    base = args.base_url.rstrip("/")
+    print(f"Built {args.site} with {len(entries)} briefing(s); feed: {base}/feed.xml")
+    return 0
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(prog="daily_briefing", description=__doc__)
     parser.add_argument("-v", "--verbose", action="store_true")
@@ -132,6 +153,14 @@ def main(argv: list[str] | None = None) -> int:
     cs.add_argument("--config", default="config/briefing.yaml")
     cs.add_argument("--pending", default="output/.pending-seen.json")
     cs.set_defaults(func=cmd_commit_state)
+
+    pub = sub.add_parser("publish", help="build the GitHub Pages site + RSS feed")
+    pub.add_argument("--out", default="output", help="directory with the new briefing-*.md/.json")
+    pub.add_argument("--site", default="site", help="directory to write the site to")
+    pub.add_argument("--base-url", required=True, help="public URL of the site, e.g. https://user.github.io/repo")
+    pub.add_argument("--keep", type=int, default=30, help="number of briefings to keep in the site/feed")
+    pub.add_argument("--no-history", action="store_true", help="don't fetch earlier briefings from the live site")
+    pub.set_defaults(func=cmd_publish)
 
     val = sub.add_parser("validate", help="validate the config file")
     val.add_argument("--config", default="config/briefing.yaml")
