@@ -128,8 +128,10 @@ The Daily Brief's (from its reviews):
   blocked out in rounded boxes with lit tops and shaded right faces (see **The one rule**). It is only sky,
   with no ground under it: rain falls out of the bottom of the strip.
 - **The sky's things are rounded cubes and prisms.** The sun, the moon and the clouds are boxes with
-  rounded corners (`box` with `r`), lit top, mid left face, dark right face, a cloud a slab with smaller
-  rounded boxes stacked on it: not balls, domes or discs.
+  rounded corners (`box` with `r`), lit top, mid left face, dark right face: not balls, domes or discs.
+- **Clouds are cumulus.** A heap of rounded boxes in tiers, widest low and narrowing to a crown, the bottom
+  tier side by side on one plane for the flat underside. No big slab under a cloud. Shadows lean blue and
+  lavender (pale blue left faces, lavender right faces), not flat grey.
 - **The page plays SMIL, not CSS.** The artifact's asset store strips an
   SVG's `<style>` and `<animate>`, so the SVGs are converted
   (`art/generators/smil.py`) and given to the page as its own files.
