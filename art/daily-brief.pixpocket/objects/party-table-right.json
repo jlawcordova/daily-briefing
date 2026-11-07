@@ -1,0 +1,81 @@
+{
+  "notes": [
+    "The right half of the party table: a teal rounded box 72x36 units, 9 pixels deep, cream polka dots on its lit top, on four square legs that run out of the box at the bottom.",
+    "Place it by pixel (px) at the party's anchor."
+  ],
+  "category": [
+    "Daily Brief",
+    "Party"
+  ],
+  "kind": "sprite",
+  "anchor": [0, 10],
+  "keys": {
+    "a": "teal-1",
+    "b": "cream",
+    "c": "teal-3",
+    "d": "teal-2",
+    "e": "teal-4"
+  },
+  "layers": [
+    {
+      "map": [
+        "a.................................................",
+        "aaa...............................................",
+        "aaaaa.............................................",
+        "aaaaaaa...........................................",
+        "aaaaaaaaa.........................................",
+        "aaaaaaaaaaa.......................................",
+        "abbaaaaaaaaaa.....................................",
+        "aaaaaaaaaaaaaaa...................................",
+        "aaaaaaaaaaaaaaaaa.................................",
+        "aaaaaaaaaaaaaaaaaaa...............................",
+        "aaaaaaaaaaaaaaaaaaaaa.............................",
+        "aaaaaaaaaaabbaaaaaaaaaa...........................",
+        "aaaaaaaaaaaaaaaaaaaaaaaaa.........................",
+        "aaaaaaaaaaaaaaaaaaaaaaaaaaa.......................",
+        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa.....................",
+        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa...................",
+        "abbaaaaaaaaaaaaaaaaaabbaaaaaaaaaa.................",
+        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa...............",
+        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.............",
+        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa...........",
+        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.........",
+        "aaaaaaaaaaabbaaaaaaaaaaaaaaaaaabbaaaaaaaaaa.......",
+        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.....",
+        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa...",
+        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.",
+        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "abbaaaaaaaaaaaaaaaaaabbaaaaaaaaaaaaaaaaaabbaaaaaaa",
+        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaac",
+        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaccc",
+        "aaaaaaaaaaabbaaaaaaaaaaaaaaaaaabbaaaaaaaaaaaaccccc",
+        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaccccccc",
+        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaccccccccc",
+        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaccccccccccc",
+        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaccccccccccccc",
+        "dbbaaaaaaaaaaaaaaaaaabbaaaaaaaaaaaaccccccccccccccc",
+        "dddaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaccccccccccccccccc",
+        "dddddaaaaaaaaaaaaaaaaaaaaaaaaaacccccccccccccccccc.",
+        "dddddddaaaaaaaaaaaaaaaaaaaaaacccccccccccccccccc...",
+        "dddddddddaaaaaaaaaaaaaaaaaaccccccccccccccccccee...",
+        "dddddddddddbbaaaaaaaaaaaacccccccccccccccccceeee...",
+        "dddddddddddddaaaaaaaaaaccccccccccccccccccceeeee...",
+        "ddddddddddddddddddcccccccccccccccccccccccceeeee...",
+        "ddddddddddddddddddcccccccccccccccccccccccceeeee...",
+        ".dddddddddddddddddccccccccccccccccc..ccccceeeee...",
+        "...dddddddddddddddccccccccccccccc....ccccceeeee...",
+        ".....dddddddddddddccccccccccccc......ccccceeeee...",
+        ".......dddddddddddccccccccccc........ccccceeeee...",
+        ".........dddddddddccccccccc..........ccccceeeee...",
+        "...........dddddddccccccc............ccccceeeee...",
+        ".............dddddccccc..............ccccceeeee...",
+        ".............ccccceeeee..............ccccceeeee...",
+        ".............ccccceeeee..............ccccceeeee...",
+        ".............ccccceeeee..............ccccceeeee...",
+        ".............ccccceeeee..............ccccceeeee..."
+      ]
+    }
+  ]
+}

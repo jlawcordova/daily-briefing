@@ -1,0 +1,10 @@
+{
+  "notes": [
+    "The balloon icon on a birthday card."
+  ],
+  "output": "bday-icon-balloon.svg",
+  "viewBox": [-12, -18, 24, 24],
+  "items": [
+    { "object": "party-icon-balloon", "depth": "back", "state": "bob", "at": { "px": [0, 0] }, "order": 0 }
+  ]
+}

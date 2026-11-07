@@ -1,0 +1,93 @@
+{
+  "notes": [
+    "A clay gift on the party table: a rounded cube 10 units, its ribbon (cream) crossing its top and running down its faces, a bow on top. It hops now and then.",
+    "Place it by pixel (px) at the middle of its footprint on the table.",
+    "States: hop (15 frames of 100 ms, looping: a hop, then a rest)."
+  ],
+  "category": [
+    "Daily Brief",
+    "Party"
+  ],
+  "kind": "sprite",
+  "anchor": [9, 14],
+  "keys": {
+    "a": "clay-1",
+    "b": "cream",
+    "c": "clay-2",
+    "d": "clay-3",
+    "e": "path-1",
+    "f": "path-2"
+  },
+  "layers": [
+    {
+      "loop": "pose",
+      "prefix": "p",
+      "frames": [
+        [
+          "..................",
+          "..................",
+          "......aaaaaa......",
+          "....bbbaaaabbb....",
+          "..abbbbbbbbbbbba..",
+          "aaabbbbbbbbbbbbaaa",
+          "aaaaabbbbbbbbaaaaa",
+          "ccabbbbbbbbbbbbadd",
+          "cccebbbaaaabbbfddd",
+          "ccceecaaaaaadffddd",
+          "ccceeccccddddffddd",
+          "ccceeccccddddffddd",
+          "ccceeccccddddffddd",
+          "ccceeccccddddffddd",
+          "ccceeccccddddffddd",
+          "..ceeccccddddffd..",
+          "....eccccddddf....",
+          "......cccddd......"
+        ],
+        [
+          "..................",
+          "......aaaaaa......",
+          "....bbbaaaabbb....",
+          "..abbbbbbbbbbbba..",
+          "aaabbbbbbbbbbbbaaa",
+          "aaaaabbbbbbbbaaaaa",
+          "ccabbbbbbbbbbbbadd",
+          "cccebbbaaaabbbfddd",
+          "ccceecaaaaaadffddd",
+          "ccceeccccddddffddd",
+          "ccceeccccddddffddd",
+          "ccceeccccddddffddd",
+          "ccceeccccddddffddd",
+          "ccceeccccddddffddd",
+          "..ceeccccddddffd..",
+          "....eccccddddf....",
+          "......cccddd......",
+          ".................."
+        ],
+        [
+          "......aaaaaa......",
+          "....bbbaaaabbb....",
+          "..abbbbbbbbbbbba..",
+          "aaabbbbbbbbbbbbaaa",
+          "aaaaabbbbbbbbaaaaa",
+          "ccabbbbbbbbbbbbadd",
+          "cccebbbaaaabbbfddd",
+          "ccceecaaaaaadffddd",
+          "ccceeccccddddffddd",
+          "ccceeccccddddffddd",
+          "ccceeccccddddffddd",
+          "ccceeccccddddffddd",
+          "ccceeccccddddffddd",
+          "..ceeccccddddffd..",
+          "....eccccddddf....",
+          "......cccddd......",
+          "..................",
+          ".................."
+        ]
+      ]
+    }
+  ],
+  "start": "hop",
+  "states": {
+    "hop": { "frames": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 2, 1], "ms": 100 }
+  }
+}

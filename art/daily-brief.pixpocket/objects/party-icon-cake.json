@@ -1,0 +1,96 @@
+{
+  "notes": [
+    "A card icon: a little strawberry cake, cream on top, with one striped candle whose flame flickers.",
+    "States: flicker (3 frames of 100 ms, looping)."
+  ],
+  "category": [
+    "Daily Brief",
+    "Party"
+  ],
+  "kind": "sprite",
+  "anchor": [11, 13],
+  "keys": {
+    "a": "cream",
+    "b": "gold-1",
+    "c": "clay-1",
+    "d": "teal-1",
+    "e": "path-1",
+    "f": "roof-1",
+    "g": "roof-2"
+  },
+  "layers": [
+    {
+      "loop": "pose",
+      "prefix": "p",
+      "frames": [
+        [
+          "......................",
+          "..........a...........",
+          "..........bb..........",
+          "........aaccaa........",
+          "......aaaaaaaaaa......",
+          "....aaaaaaaaaaaaaa....",
+          "...aaaaaaaddaaaaaaa...",
+          "...aaaaaaaaaaaaaaaa...",
+          "...aaaaaaaddaaaaaae...",
+          "...aaaaaaaaaaaaaeee...",
+          "...faaaaaaaaaaeeeeg...",
+          ".aafffaaaaaeeeeegggaa.",
+          "aaafffffaaaeeegggggaaa",
+          "aaaffffffffggggggggaaa",
+          "aaaafffffffgggggggaaaa",
+          "aaaaaafffffgggggaaaaaa",
+          ".aaaaaaafffgggaaaaaaa.",
+          "...aaaaaaaaaaaaaaaa...",
+          ".....aaaaaaaaaaaa....."
+        ],
+        [
+          "......................",
+          "...........a..........",
+          "..........bb..........",
+          "........aaccaa........",
+          "......aaaaaaaaaa......",
+          "....aaaaaaaaaaaaaa....",
+          "...aaaaaaaddaaaaaaa...",
+          "...aaaaaaaaaaaaaaaa...",
+          "...aaaaaaaddaaaaaae...",
+          "...aaaaaaaaaaaaaeee...",
+          "...faaaaaaaaaaeeeeg...",
+          ".aafffaaaaaeeeeegggaa.",
+          "aaafffffaaaeeegggggaaa",
+          "aaaffffffffggggggggaaa",
+          "aaaafffffffgggggggaaaa",
+          "aaaaaafffffgggggaaaaaa",
+          ".aaaaaaafffgggaaaaaaa.",
+          "...aaaaaaaaaaaaaaaa...",
+          ".....aaaaaaaaaaaa....."
+        ],
+        [
+          "...........a..........",
+          "...........b..........",
+          "..........bb..........",
+          "........aaccaa........",
+          "......aaaaaaaaaa......",
+          "....aaaaaaaaaaaaaa....",
+          "...aaaaaaaddaaaaaaa...",
+          "...aaaaaaaaaaaaaaaa...",
+          "...aaaaaaaddaaaaaae...",
+          "...aaaaaaaaaaaaaeee...",
+          "...faaaaaaaaaaeeeeg...",
+          ".aafffaaaaaeeeeegggaa.",
+          "aaafffffaaaeeegggggaaa",
+          "aaaffffffffggggggggaaa",
+          "aaaafffffffgggggggaaaa",
+          "aaaaaafffffgggggaaaaaa",
+          ".aaaaaaafffgggaaaaaaa.",
+          "...aaaaaaaaaaaaaaaa...",
+          ".....aaaaaaaaaaaa....."
+        ]
+      ]
+    }
+  ],
+  "start": "flicker",
+  "states": {
+    "flicker": { "frames": [0, 1, 2], "ms": 100 }
+  }
+}

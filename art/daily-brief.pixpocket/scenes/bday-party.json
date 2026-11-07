@@ -1,0 +1,13 @@
+{
+  "notes": [
+    "The cake and the gifts on the table, in depth order."
+  ],
+  "output": "bday-party.svg",
+  "viewBox": [-88, -54, 176, 100],
+  "items": [
+    { "object": "party-gift-plum", "depth": "back", "state": "hop", "at": { "px": [-28, 0] }, "order": 0 },
+    { "object": "party-cake", "depth": "back", "state": "flicker", "at": { "px": [0, 0] }, "order": 1 },
+    { "object": "party-gift-grass", "depth": "back", "state": "hop", "at": { "px": [30, 15] }, "order": 2 },
+    { "object": "party-gift-clay", "depth": "back", "state": "hop", "at": { "px": [18, 25] }, "order": 3 }
+  ]
+}

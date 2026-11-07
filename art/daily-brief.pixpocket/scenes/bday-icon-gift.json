@@ -1,0 +1,10 @@
+{
+  "notes": [
+    "The gift icon on a birthday card."
+  ],
+  "output": "bday-icon-gift.svg",
+  "viewBox": [-12, -18, 24, 24],
+  "items": [
+    { "object": "party-icon-gift", "depth": "back", "state": "hop", "at": { "px": [0, 0] }, "order": 0 }
+  ]
+}

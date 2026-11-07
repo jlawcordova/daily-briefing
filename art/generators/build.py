@@ -11,7 +11,10 @@ food is served on (`brief-table-<table>`) and the foods with their glints
 table under any light. `brief-<food>` scenes put each food on its usual table, to look at.
 
 For the weather strip in the title band (`weather.py`): eleven kinds of day, by day and by night, each
-a stack of `wx-<layer>` scenes on one 176×64 box (sky, stars, sun or moon, rain, lightning, clouds, fog).
+a stack of `wx-<layer>` scenes on one 176×64 box (stars, sun or moon, rain, lightning, clouds, fog).
+
+For the Birthdays section (`party.py`): a party on the 2:1 grid in `bday-<layer>` scenes on one 176×100
+box (table, bunting, cake and gifts, balloons, sparkles, confetti), and `bday-icon-<name>` for the cards.
 
 The SVGs: `pixpocket publish --dir art/build/svg`, then `smil.py` turns their
 CSS frame loops into SMIL in art/build/smil, the files the page is given (an
@@ -23,7 +26,7 @@ sys.path.insert(0, HERE)
 from draw import BUILD, OUT, SCENES_OUT, DOC, LIBRARY, save_scene  # noqa: E402
 from canon import serialize  # noqa: E402
 from program import run  # noqa: E402
-import stage, foods, tables, smil, weather  # noqa: E402
+import stage, foods, tables, smil, weather, party  # noqa: E402
 
 # Where the glints twinkle on each food, in pixels from the table's anchor.
 GLINTS = {
@@ -103,7 +106,8 @@ def install():
         with open(os.path.join(DOC, 'objects', n + '.json'), 'w') as f:
             f.write(serialize(o))
     new = {os.path.basename(s): s for s in glob.glob(os.path.join(SCENES_OUT, '*.json'))}
-    for f in glob.glob(os.path.join(DOC, 'scenes', 'brief-*.json')) + glob.glob(os.path.join(DOC, 'scenes', 'wx-*.json')):
+    for f in glob.glob(os.path.join(DOC, 'scenes', 'brief-*.json')) + glob.glob(os.path.join(DOC, 'scenes', 'wx-*.json')) + \
+            glob.glob(os.path.join(DOC, 'scenes', 'bday-*.json')):
         if os.path.basename(f) not in new:
             os.remove(f)
     for n, f in sorted(new.items()):
@@ -119,6 +123,7 @@ def build():
     food_names = foods.build_foods()
     scenes(food_names, table_names)
     weather.build_weather()
+    party.build_party()
     return install()
 
 

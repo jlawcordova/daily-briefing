@@ -1,0 +1,93 @@
+{
+  "notes": [
+    "A sparkle at the party: a cream point that twinkles out to a star and back, then rests.",
+    "Phase 0 of four, two frames apart.",
+    "States: twinkle (8 frames of 100 ms, looping)."
+  ],
+  "category": [
+    "Daily Brief",
+    "Party"
+  ],
+  "kind": "sprite",
+  "anchor": [3, 3],
+  "keys": {
+    "a": "cream",
+    "b": "glass-1"
+  },
+  "layers": [
+    {
+      "loop": "pose",
+      "prefix": "p",
+      "frames": [
+        [
+          "......",
+          "......",
+          "..aa..",
+          "..aa..",
+          "......",
+          "......"
+        ],
+        [
+          "......",
+          "..bb..",
+          ".baab.",
+          ".baab.",
+          "..bb..",
+          "......"
+        ],
+        [
+          "..bb..",
+          "..aa..",
+          "baaaab",
+          "baaaab",
+          "..aa..",
+          "..bb.."
+        ],
+        [
+          "......",
+          "..bb..",
+          ".baab.",
+          ".baab.",
+          "..bb..",
+          "......"
+        ],
+        [
+          "......",
+          "......",
+          "..aa..",
+          "..aa..",
+          "......",
+          "......"
+        ],
+        [
+          "......",
+          "......",
+          "......",
+          "......",
+          "......",
+          "......"
+        ],
+        [
+          "......",
+          "......",
+          "......",
+          "......",
+          "......",
+          "......"
+        ],
+        [
+          "......",
+          "......",
+          "......",
+          "......",
+          "......",
+          "......"
+        ]
+      ]
+    }
+  ],
+  "start": "twinkle",
+  "states": {
+    "twinkle": { "frames": [0, 1, 2, 3, 4, 5, 6, 7], "ms": 100 }
+  }
+}

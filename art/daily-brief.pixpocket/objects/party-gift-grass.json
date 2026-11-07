@@ -1,0 +1,105 @@
+{
+  "notes": [
+    "A grass gift on the party table: a rounded cube 12 units, its ribbon (roof-1) crossing its top and running down its faces, a bow on top. It hops now and then.",
+    "Place it by pixel (px) at the middle of its footprint on the table.",
+    "States: hop (15 frames of 100 ms, looping: a hop, then a rest)."
+  ],
+  "category": [
+    "Daily Brief",
+    "Party"
+  ],
+  "kind": "sprite",
+  "anchor": [11, 17],
+  "keys": {
+    "a": "grass-1",
+    "b": "roof-1",
+    "c": "grass-2",
+    "d": "grass-3",
+    "e": "roof-2",
+    "f": "roof-3"
+  },
+  "layers": [
+    {
+      "loop": "pose",
+      "prefix": "p",
+      "frames": [
+        [
+          "......................",
+          "......................",
+          "........aaaaaa........",
+          "......baaaaaaaab......",
+          "....bbbbbaaaabbbbb....",
+          "..aaabbbbbbbbbbbbaaa..",
+          "aaaaabbbbbbbbbbbbaaaaa",
+          "aaaaaaabbbbbbbbaaaaaaa",
+          "ccaaabbbbbbbbbbbbaaadd",
+          "ccccbbbbbaaaabbbbbdddd",
+          "cccceebaaaaaaaabffdddd",
+          "cccceeccaaaaaaddffdddd",
+          "cccceecccccdddddffdddd",
+          "cccceecccccdddddffdddd",
+          "cccceecccccdddddffdddd",
+          "cccceecccccdddddffdddd",
+          "cccceecccccdddddffdddd",
+          "cccceecccccdddddffdddd",
+          "..cceecccccdddddffdd..",
+          "....eecccccdddddff....",
+          "......cccccddddd......",
+          "........cccddd........"
+        ],
+        [
+          "......................",
+          "........aaaaaa........",
+          "......baaaaaaaab......",
+          "....bbbbbaaaabbbbb....",
+          "..aaabbbbbbbbbbbbaaa..",
+          "aaaaabbbbbbbbbbbbaaaaa",
+          "aaaaaaabbbbbbbbaaaaaaa",
+          "ccaaabbbbbbbbbbbbaaadd",
+          "ccccbbbbbaaaabbbbbdddd",
+          "cccceebaaaaaaaabffdddd",
+          "cccceeccaaaaaaddffdddd",
+          "cccceecccccdddddffdddd",
+          "cccceecccccdddddffdddd",
+          "cccceecccccdddddffdddd",
+          "cccceecccccdddddffdddd",
+          "cccceecccccdddddffdddd",
+          "cccceecccccdddddffdddd",
+          "..cceecccccdddddffdd..",
+          "....eecccccdddddff....",
+          "......cccccddddd......",
+          "........cccddd........",
+          "......................"
+        ],
+        [
+          "........aaaaaa........",
+          "......baaaaaaaab......",
+          "....bbbbbaaaabbbbb....",
+          "..aaabbbbbbbbbbbbaaa..",
+          "aaaaabbbbbbbbbbbbaaaaa",
+          "aaaaaaabbbbbbbbaaaaaaa",
+          "ccaaabbbbbbbbbbbbaaadd",
+          "ccccbbbbbaaaabbbbbdddd",
+          "cccceebaaaaaaaabffdddd",
+          "cccceeccaaaaaaddffdddd",
+          "cccceecccccdddddffdddd",
+          "cccceecccccdddddffdddd",
+          "cccceecccccdddddffdddd",
+          "cccceecccccdddddffdddd",
+          "cccceecccccdddddffdddd",
+          "cccceecccccdddddffdddd",
+          "..cceecccccdddddffdd..",
+          "....eecccccdddddff....",
+          "......cccccddddd......",
+          "........cccddd........",
+          "......................",
+          "......................"
+        ]
+      ]
+    }
+  ],
+  "start": "hop",
+  "states": {
+    "hop": { "frames": [0, 0, 0, 0, 0, 0, 1, 2, 2, 1, 0, 0, 0, 0, 0], "ms": 100 }
+  }
+}

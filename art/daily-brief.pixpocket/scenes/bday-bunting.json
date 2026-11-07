@@ -1,0 +1,11 @@
+{
+  "notes": [
+    "The pennants chasing round the table's front faces."
+  ],
+  "output": "bday-bunting.svg",
+  "viewBox": [-88, -54, 176, 100],
+  "items": [
+    { "object": "party-bunting-left", "depth": "back", "state": "chase", "at": { "px": [0, 0] }, "order": 0 },
+    { "object": "party-bunting-right", "depth": "back", "state": "chase", "at": { "px": [0, 0] }, "order": 0 }
+  ]
+}

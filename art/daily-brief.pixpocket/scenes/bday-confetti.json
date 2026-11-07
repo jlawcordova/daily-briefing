@@ -1,0 +1,11 @@
+{
+  "notes": [
+    "Confetti tumbling down over everything, the top layer."
+  ],
+  "output": "bday-confetti.svg",
+  "viewBox": [-88, -54, 176, 100],
+  "items": [
+    { "object": "party-confetti-left", "depth": "back", "state": "fall", "at": { "px": [0, 0] }, "order": 0 },
+    { "object": "party-confetti-right", "depth": "back", "state": "fall", "at": { "px": [0, 0] }, "order": 0 }
+  ]
+}

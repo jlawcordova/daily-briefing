@@ -135,6 +135,9 @@ The Daily Brief's (from its reviews):
 - **Clouds are cumulus.** A heap of rounded boxes in tiers, widest low and narrowing to a crown, the bottom
   tier side by side on one plane for the flat underside. No big slab under a cloud. Shadows lean blue and
   lavender (pale blue left faces, lavender right faces), not flat grey.
+- **Birthdays are festive.** The Birthdays party is the brightest, busiest piece: saturated ramps, a
+  cake (no face) with flickering candles, gifts that hop, balloons that bob, pennants chasing, sparkles and
+  confetti, all on the grid and transparent over the gold band. Here more moves, on purpose.
 - **The page plays SMIL, not CSS.** The artifact's asset store strips an
   SVG's `<style>` and `<animate>`, so the SVGs are converted
   (`art/generators/smil.py`) and given to the page as its own files.
