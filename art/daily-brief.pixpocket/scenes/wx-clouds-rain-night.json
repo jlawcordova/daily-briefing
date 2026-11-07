@@ -1,0 +1,12 @@
+{
+  "notes": [
+    "A layer of the weather strip by night: clouds rain. The page stacks the layers a kind needs, bottom to top, on one anchor."
+  ],
+  "output": "wx-clouds-rain-night.svg",
+  "viewBox": [-88, -44, 176, 64],
+  "items": [
+    { "object": "weather-cloud-bank-slate", "depth": "back", "state": "drift-1", "at": { "px": [44, -22] }, "order": 0 },
+    { "object": "weather-cloud-bank-slate", "depth": "back", "state": "drift-0", "at": { "px": [-48, -20] }, "order": 1 },
+    { "object": "weather-cloud-heap-slate", "depth": "back", "state": "drift-2", "at": { "px": [0, -10] }, "order": 2 }
+  ]
+}

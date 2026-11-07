@@ -1,0 +1,11 @@
+{
+  "notes": [
+    "A layer of the weather strip by night: clouds partly. The page stacks the layers a kind needs, bottom to top, on one anchor."
+  ],
+  "output": "wx-clouds-partly-night.svg",
+  "viewBox": [-88, -44, 176, 64],
+  "items": [
+    { "object": "weather-cloud-puff-dusk", "depth": "back", "state": "drift-2", "at": { "px": [48, -28] }, "order": 0 },
+    { "object": "weather-cloud-heap-dusk", "depth": "back", "state": "drift-1", "at": { "px": [-22, -16] }, "order": 1 }
+  ]
+}

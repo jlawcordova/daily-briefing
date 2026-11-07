@@ -1,0 +1,12 @@
+{
+  "notes": [
+    "A layer of the weather strip by night: stars mist. The page stacks the layers a kind needs, bottom to top, on one anchor."
+  ],
+  "output": "wx-stars-mist.svg",
+  "viewBox": [-88, -44, 176, 64],
+  "items": [
+    { "object": "weather-star-1", "depth": "back", "state": "twinkle", "at": { "px": [-30, -38] }, "order": 1 },
+    { "object": "weather-star-0", "depth": "back", "state": "twinkle", "at": { "px": [-80, -34] }, "order": 0 },
+    { "object": "weather-star-2", "depth": "back", "state": "twinkle", "at": { "px": [-8, -30] }, "order": 2 }
+  ]
+}

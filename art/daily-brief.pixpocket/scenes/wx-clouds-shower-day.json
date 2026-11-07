@@ -1,0 +1,11 @@
+{
+  "notes": [
+    "A layer of the weather strip by day: clouds shower. The page stacks the layers a kind needs, bottom to top, on one anchor."
+  ],
+  "output": "wx-clouds-shower-day.svg",
+  "viewBox": [-88, -44, 176, 64],
+  "items": [
+    { "object": "weather-cloud-puff-white", "depth": "back", "state": "drift-2", "at": { "px": [-12, -28] }, "order": 0 },
+    { "object": "weather-cloud-tower-grey", "depth": "back", "state": "drift-0", "at": { "px": [42, -14] }, "order": 1 }
+  ]
+}

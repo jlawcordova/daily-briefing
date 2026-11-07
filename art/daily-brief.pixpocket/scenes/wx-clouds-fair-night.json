@@ -1,0 +1,10 @@
+{
+  "notes": [
+    "A layer of the weather strip by night: clouds fair. The page stacks the layers a kind needs, bottom to top, on one anchor."
+  ],
+  "output": "wx-clouds-fair-night.svg",
+  "viewBox": [-88, -44, 176, 64],
+  "items": [
+    { "object": "weather-cloud-puff-dusk", "depth": "back", "state": "drift-0", "at": { "px": [34, -26] }, "order": 0 }
+  ]
+}

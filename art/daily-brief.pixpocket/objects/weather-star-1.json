@@ -1,0 +1,79 @@
+{
+  "notes": [
+    "A star at night: a cream dot that twinkles out to a small cross and back, then rests.",
+    "Phase 1 of five, two frames apart, so stars side by side twinkle in turn.",
+    "States: twinkle (10 frames of 200 ms, looping)."
+  ],
+  "category": [
+    "Daily Brief",
+    "Weather"
+  ],
+  "kind": "sprite",
+  "anchor": [1, 1],
+  "keys": {
+    "a": "glass-1",
+    "b": "cream"
+  },
+  "layers": [
+    {
+      "loop": "pose",
+      "prefix": "p",
+      "frames": [
+        [
+          ".a.",
+          "aba",
+          ".a."
+        ],
+        [
+          ".b.",
+          "bbb",
+          ".b."
+        ],
+        [
+          "...",
+          ".b.",
+          "..."
+        ],
+        [
+          "...",
+          ".b.",
+          "..."
+        ],
+        [
+          "...",
+          ".b.",
+          "..."
+        ],
+        [
+          "...",
+          ".b.",
+          "..."
+        ],
+        [
+          "...",
+          ".b.",
+          "..."
+        ],
+        [
+          "...",
+          ".b.",
+          "..."
+        ],
+        [
+          "...",
+          ".b.",
+          "..."
+        ],
+        [
+          ".b.",
+          "bbb",
+          ".b."
+        ]
+      ]
+    }
+  ],
+  "start": "twinkle",
+  "states": {
+    "twinkle": { "frames": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], "ms": 200 }
+  }
+}
