@@ -1,0 +1,11 @@
+{
+  "notes": [
+    "A layer of the weather strip by day: wet drizzle. The page stacks the layers a kind needs, bottom to top, on one anchor."
+  ],
+  "output": "wx-drizzle-day.svg",
+  "viewBox": [-88, -44, 176, 64],
+  "items": [
+    { "object": "weather-drizzle-day-left", "depth": "back", "state": "fall", "at": { "px": [0, 0] }, "order": 0 },
+    { "object": "weather-drizzle-day-right", "depth": "back", "state": "fall", "at": { "px": [0, 0] }, "order": 0 }
+  ]
+}

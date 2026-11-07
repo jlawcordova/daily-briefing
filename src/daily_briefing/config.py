@@ -125,6 +125,17 @@ class FeatureSource(_SourceBase):
     criteria: str = ""
 
 
+class WeatherSource(_Strict):
+    """Today's weather for one place, from MET Norway (the forecast behind yr.no)."""
+
+    name: str = Field("Weather", min_length=1)
+    place: str = Field(min_length=1)
+    lat: float = Field(ge=-90, le=90)
+    lon: float = Field(ge=-180, le=180)
+    link: HttpUrl | None = None  # the place's forecast page, linked from the briefing
+    enabled: bool = True
+
+
 class BriefingConfig(_Strict):
     version: Literal[1] = 1
     settings: Settings = Settings()
@@ -133,6 +144,7 @@ class BriefingConfig(_Strict):
     articles: list[ArticleSource] = []
     forums: list[ForumSource] = []
     features: list[FeatureSource] = []
+    weather: WeatherSource | None = None
 
     @model_validator(mode="after")
     def _unique_names(self) -> BriefingConfig:

@@ -1,0 +1,10 @@
+{
+  "notes": [
+    "A layer of the weather strip by day: bolt bolt-shower. The page stacks the layers a kind needs, bottom to top, on one anchor."
+  ],
+  "output": "wx-bolt-shower-day.svg",
+  "viewBox": [-88, -44, 176, 64],
+  "items": [
+    { "object": "weather-bolt-shower-day", "depth": "back", "state": "flash", "at": { "px": [0, 0] }, "order": 0 }
+  ]
+}

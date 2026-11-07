@@ -1,0 +1,117 @@
+{
+  "notes": [
+    "A plum gift on the party table: a rounded cube 14 units, its ribbon (gold-1) crossing its top and running down its faces, a bow on top. It hops now and then.",
+    "Place it by pixel (px) at the middle of its footprint on the table.",
+    "States: hop (15 frames of 100 ms, looping: a hop, then a rest)."
+  ],
+  "category": [
+    "Daily Brief",
+    "Party"
+  ],
+  "kind": "sprite",
+  "anchor": [13, 20],
+  "keys": {
+    "a": "plum-1",
+    "b": "gold-1",
+    "c": "plum-2",
+    "d": "plum-3",
+    "e": "gold-2",
+    "f": "gold-3"
+  },
+  "layers": [
+    {
+      "loop": "pose",
+      "prefix": "p",
+      "frames": [
+        [
+          "..........................",
+          "..........................",
+          "..........aaaaaa..........",
+          "........aaaaaaaaaa........",
+          "......bbbaaaaaaaabbb......",
+          "....abbbbbbaaaabbbbbba....",
+          "..aaaaabbbbbbbbbbbbaaaaa..",
+          "aaaaaaabbbbbbbbbbbbaaaaaaa",
+          "aaaaaaaaabbbbbbbbaaaaaaaaa",
+          "ccaaaaabbbbbbbbbbbbaaaaadd",
+          "ccccabbbbbbaaaabbbbbbadddd",
+          "cccccebbbaaaaaaaabbbfddddd",
+          "ccccceecaaaaaaaaaadffddddd",
+          "ccccceecccaaaaaadddffddddd",
+          "ccccceeccccccddddddffddddd",
+          "ccccceeccccccddddddffddddd",
+          "ccccceeccccccddddddffddddd",
+          "ccccceeccccccddddddffddddd",
+          "ccccceeccccccddddddffddddd",
+          "ccccceeccccccddddddffddddd",
+          "ccccceeccccccddddddffddddd",
+          "..ccceeccccccddddddffddd..",
+          "....ceeccccccddddddffd....",
+          "......eccccccddddddf......",
+          "........cccccddddd........",
+          "..........cccddd.........."
+        ],
+        [
+          "..........................",
+          "..........aaaaaa..........",
+          "........aaaaaaaaaa........",
+          "......bbbaaaaaaaabbb......",
+          "....abbbbbbaaaabbbbbba....",
+          "..aaaaabbbbbbbbbbbbaaaaa..",
+          "aaaaaaabbbbbbbbbbbbaaaaaaa",
+          "aaaaaaaaabbbbbbbbaaaaaaaaa",
+          "ccaaaaabbbbbbbbbbbbaaaaadd",
+          "ccccabbbbbbaaaabbbbbbadddd",
+          "cccccebbbaaaaaaaabbbfddddd",
+          "ccccceecaaaaaaaaaadffddddd",
+          "ccccceecccaaaaaadddffddddd",
+          "ccccceeccccccddddddffddddd",
+          "ccccceeccccccddddddffddddd",
+          "ccccceeccccccddddddffddddd",
+          "ccccceeccccccddddddffddddd",
+          "ccccceeccccccddddddffddddd",
+          "ccccceeccccccddddddffddddd",
+          "ccccceeccccccddddddffddddd",
+          "..ccceeccccccddddddffddd..",
+          "....ceeccccccddddddffd....",
+          "......eccccccddddddf......",
+          "........cccccddddd........",
+          "..........cccddd..........",
+          ".........................."
+        ],
+        [
+          "..........aaaaaa..........",
+          "........aaaaaaaaaa........",
+          "......bbbaaaaaaaabbb......",
+          "....abbbbbbaaaabbbbbba....",
+          "..aaaaabbbbbbbbbbbbaaaaa..",
+          "aaaaaaabbbbbbbbbbbbaaaaaaa",
+          "aaaaaaaaabbbbbbbbaaaaaaaaa",
+          "ccaaaaabbbbbbbbbbbbaaaaadd",
+          "ccccabbbbbbaaaabbbbbbadddd",
+          "cccccebbbaaaaaaaabbbfddddd",
+          "ccccceecaaaaaaaaaadffddddd",
+          "ccccceecccaaaaaadddffddddd",
+          "ccccceeccccccddddddffddddd",
+          "ccccceeccccccddddddffddddd",
+          "ccccceeccccccddddddffddddd",
+          "ccccceeccccccddddddffddddd",
+          "ccccceeccccccddddddffddddd",
+          "ccccceeccccccddddddffddddd",
+          "ccccceeccccccddddddffddddd",
+          "..ccceeccccccddddddffddd..",
+          "....ceeccccccddddddffd....",
+          "......eccccccddddddf......",
+          "........cccccddddd........",
+          "..........cccddd..........",
+          "..........................",
+          ".........................."
+        ]
+      ]
+    }
+  ],
+  "start": "hop",
+  "states": {
+    "hop": { "frames": [0, 1, 2, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "ms": 100 }
+  }
+}

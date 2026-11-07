@@ -146,6 +146,14 @@ features:
     count: 1                       # how many places per briefing
     criteria: string               # free-text guidance for the agent
     enabled: bool
+
+weather:                           # optional, one place
+  name: Weather                    # default "Weather", shown in the run report
+  place: string                    # e.g. "Davao City"
+  lat: float
+  lon: float
+  link: string                     # optional, the place's yr.no forecast page
+  enabled: bool
 ```
 
 Validation happens at startup with pydantic. An invalid config fails the run with a clear error message before any API calls are made.
@@ -316,6 +324,28 @@ The agent uses `web_search` and `web_fetch` with the `criteria`. Hard requiremen
 - At least 1 source with a date inside `freshness_days` (for example a blog post, news article, or recent review).
 - The place name is not in the ledger's `features` list, so the same place is never featured twice.
 - Output must match the `Feature` schema. A malformed result gets 1 retry; after that the section shows "No feature today" with the reason.
+
+### 6.6 Weather collector
+
+Deterministic, no AI. One GET to MET Norway's Locationforecast `compact` API
+(`https://api.met.no/weatherapi/locationforecast/2.0/compact?lat=..&lon=..`, the forecast behind yr.no;
+free, no key, needs the identifying User-Agent the client already sends). It keeps the hourly steps on
+today's local date and folds them into a `Weather`: `place`, `date`, `high` and `low` (°C, rounded),
+`precipitation_mm`, `summary` (by morning 06–12, afternoon 12–18 and evening 18–24, like "Clear morning,
+showers in the afternoon and evening") and `kind`, the sky the Daily Brief page draws.
+
+`kind` is one of `sun`, `fair`, `partly`, `cloudy`, `fog`, `drizzle`, `showers`, `rain`, `heavy-rain`,
+`thundershowers`, `storm`. Each hour's yr.no symbol (`_day`/`_night` dropped) maps to one: `clearsky` sun,
+`fair` fair, `partlycloudy` partly, `cloudy`, `fog`, `lightrain` drizzle, `rain`, `heavyrain` and
+`heavyrainshowers` heavy-rain, `lightrainshowers`/`rainshowers` showers, `*showersandthunder` thundershowers,
+`*rainandthunder` storm (sleet and snow map onto the rain of the same strength). The day's kind comes from
+06:00–18:00: no wet hours gives the most common dry kind (a tie goes cloudier); wet half the day or more gives
+storm (2+ thunder hours), heavy-rain (3+ heavy hours), drizzle (mostly light) or rain; fewer wet hours give
+thundershowers (any thunder), heavy-rain (2+ heavy hours), drizzle (all light) or showers.
+
+The weather is a line at the top of the Markdown (so it is in every feed item), a row in the run report,
+`weather` in the briefing JSON, and a "Weather: …" note in the archive summary. A failure is reported and
+the rest of the run carries on.
 
 ## 7. Deduplication
 

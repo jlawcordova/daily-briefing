@@ -1,0 +1,13 @@
+{
+  "notes": [
+    "The balloons bobbing over the table."
+  ],
+  "output": "bday-balloons.svg",
+  "viewBox": [-88, -54, 176, 100],
+  "items": [
+    { "object": "party-balloon-green", "depth": "back", "state": "bob", "at": { "px": [32, -36] }, "order": 0 },
+    { "object": "party-balloon-red", "depth": "back", "state": "bob", "at": { "px": [-30, -34] }, "order": 1 },
+    { "object": "party-balloon-plum", "depth": "back", "state": "bob", "at": { "px": [-62, -30] }, "order": 2 },
+    { "object": "party-balloon-blue", "depth": "back", "state": "bob", "at": { "px": [62, -28] }, "order": 3 }
+  ]
+}

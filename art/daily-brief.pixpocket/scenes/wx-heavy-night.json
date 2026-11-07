@@ -1,0 +1,11 @@
+{
+  "notes": [
+    "A layer of the weather strip by night: wet heavy. The page stacks the layers a kind needs, bottom to top, on one anchor."
+  ],
+  "output": "wx-heavy-night.svg",
+  "viewBox": [-88, -44, 176, 64],
+  "items": [
+    { "object": "weather-heavy-night-left", "depth": "back", "state": "fall", "at": { "px": [0, 0] }, "order": 0 },
+    { "object": "weather-heavy-night-right", "depth": "back", "state": "fall", "at": { "px": [0, 0] }, "order": 0 }
+  ]
+}

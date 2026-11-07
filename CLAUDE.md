@@ -12,6 +12,9 @@ with Pixpocket). `README.md` has the setup and the commands.
 
 - Read the `pixel-art-style` skill (`.claude/skills/pixel-art-style/SKILL.md`) before drawing or changing art.
   It's the house style and the owner's rules. When the owner reacts to how something looks, add the rule there.
+- All art in this repo is isometric SLYNYRD pixel art on Pixpocket's 2:1 grid: things built from boxes and
+  pucks standing on tiles, never flat or side-on drawings (no disc suns or round clouds on a backdrop). Plan a
+  new piece on the grid, in the skill's terms, before writing its generator.
 - Pixpocket is pinned in `.pixpocket-version`; `scripts/install-pixpocket.sh` installs it into `.tools/`.
   The generators use that copy and refuse another version.
 - The art is generated: edit `art/generators/`, never the JSON in `art/daily-brief.pixpocket/`, then

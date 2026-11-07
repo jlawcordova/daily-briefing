@@ -16,7 +16,7 @@ from .config import load_config
 from .state import Ledger, backend_from_env, merge_pending
 
 log = logging.getLogger("daily_briefing")
-SECTION_NAMES = {"news", "podcasts", "articles", "forums", "features"}
+SECTION_NAMES = {"news", "podcasts", "articles", "forums", "features", "weather"}
 
 
 def cmd_validate(args) -> int:
@@ -25,7 +25,8 @@ def cmd_validate(args) -> int:
     except (ValidationError, OSError, ValueError) as e:
         print(f"Invalid config: {e}", file=sys.stderr)
         return 2
-    counts = {k: len(getattr(cfg, k)) for k in sorted(SECTION_NAMES)}
+    counts = {k: len(getattr(cfg, k)) for k in sorted(SECTION_NAMES - {"weather"})}
+    counts["weather"] = 1 if cfg.weather and cfg.weather.enabled else 0
     print(f"OK: {args.config} " + ", ".join(f"{k}={v}" for k, v in counts.items()))
     return 0
 
@@ -145,7 +146,7 @@ def main(argv: list[str] | None = None) -> int:
     run.add_argument("--dry-run", action="store_true", help="never write the ledger")
     run.add_argument("--commit", action="store_true", help="save the ledger right after rendering (local use)")
     run.add_argument("--ignore-seen", action="store_true", help="include items already in the ledger")
-    run.add_argument("--only", help="comma list: news,podcasts,articles,forums,features")
+    run.add_argument("--only", help="comma list: news,podcasts,articles,forums,features,weather")
     run.add_argument("--no-ai", action="store_true", help="skip Claude (no summaries, web sources, feature)")
     run.set_defaults(func=cmd_run)
 

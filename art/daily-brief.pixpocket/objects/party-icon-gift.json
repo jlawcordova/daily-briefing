@@ -1,0 +1,83 @@
+{
+  "notes": [
+    "A card icon: a plum gift with a gold ribbon and bow that hops.",
+    "States: hop (100 ms frames, looping: a hop, then a rest)."
+  ],
+  "category": [
+    "Daily Brief",
+    "Party"
+  ],
+  "kind": "sprite",
+  "anchor": [7, 12],
+  "keys": {
+    "a": "gold-1",
+    "b": "plum-1",
+    "c": "plum-2",
+    "d": "plum-3",
+    "e": "gold-2",
+    "f": "gold-3"
+  },
+  "layers": [
+    {
+      "loop": "pose",
+      "prefix": "p",
+      "frames": [
+        [
+          "..............",
+          "..............",
+          "....abbbba....",
+          ".aaaaaaaaaaaa.",
+          "baaaaaaaaaaaab",
+          "bbbaaaaaaaabbb",
+          "ccaaaaaaaaaadd",
+          "cceeabbbbaffdd",
+          "cceecccdddffdd",
+          "cceecccdddffdd",
+          "cceecccdddffdd",
+          "cceecccdddffdd",
+          "cceecccdddffdd",
+          "..eecccdddff..",
+          "....cccddd...."
+        ],
+        [
+          "..............",
+          "....abbbba....",
+          ".aaaaaaaaaaaa.",
+          "baaaaaaaaaaaab",
+          "bbbaaaaaaaabbb",
+          "ccaaaaaaaaaadd",
+          "cceeabbbbaffdd",
+          "cceecccdddffdd",
+          "cceecccdddffdd",
+          "cceecccdddffdd",
+          "cceecccdddffdd",
+          "cceecccdddffdd",
+          "..eecccdddff..",
+          "....cccddd....",
+          ".............."
+        ],
+        [
+          "....abbbba....",
+          ".aaaaaaaaaaaa.",
+          "baaaaaaaaaaaab",
+          "bbbaaaaaaaabbb",
+          "ccaaaaaaaaaadd",
+          "cceeabbbbaffdd",
+          "cceecccdddffdd",
+          "cceecccdddffdd",
+          "cceecccdddffdd",
+          "cceecccdddffdd",
+          "cceecccdddffdd",
+          "..eecccdddff..",
+          "....cccddd....",
+          "..............",
+          ".............."
+        ]
+      ]
+    }
+  ],
+  "start": "hop",
+  "states": {
+    "hop": { "frames": [0, 1, 2, 2, 1, 0, 0, 0, 0, 0, 0, 0], "ms": 100 }
+  }
+}

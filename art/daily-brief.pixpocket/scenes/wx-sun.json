@@ -1,0 +1,10 @@
+{
+  "notes": [
+    "A layer of the weather strip by day: body. The page stacks the layers a kind needs, bottom to top, on one anchor."
+  ],
+  "output": "wx-sun.svg",
+  "viewBox": [-88, -44, 176, 64],
+  "items": [
+    { "object": "weather-sun", "depth": "back", "state": "shine", "at": { "px": [-54, -24] }, "order": 0 }
+  ]
+}

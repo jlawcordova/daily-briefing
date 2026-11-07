@@ -1,0 +1,17 @@
+{
+  "notes": [
+    "Sparkles twinkling round the cake and the balloons."
+  ],
+  "output": "bday-sparkles.svg",
+  "viewBox": [-88, -54, 176, 100],
+  "items": [
+    { "object": "party-sparkle-0", "depth": "back", "state": "twinkle", "at": { "px": [0, -50] }, "order": 4 },
+    { "object": "party-sparkle-1", "depth": "back", "state": "twinkle", "at": { "px": [-74, -48] }, "order": 5 },
+    { "object": "party-sparkle-1", "depth": "back", "state": "twinkle", "at": { "px": [16, -46] }, "order": 1 },
+    { "object": "party-sparkle-2", "depth": "back", "state": "twinkle", "at": { "px": [78, -46] }, "order": 6 },
+    { "object": "party-sparkle-0", "depth": "back", "state": "twinkle", "at": { "px": [-16, -40] }, "order": 0 },
+    { "object": "party-sparkle-2", "depth": "back", "state": "twinkle", "at": { "px": [-46, -20] }, "order": 2 },
+    { "object": "party-sparkle-3", "depth": "back", "state": "twinkle", "at": { "px": [48, -14] }, "order": 3 },
+    { "object": "party-sparkle-3", "depth": "back", "state": "twinkle", "at": { "px": [-8, 26] }, "order": 7 }
+  ]
+}

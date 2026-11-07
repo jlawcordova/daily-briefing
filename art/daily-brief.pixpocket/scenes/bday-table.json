@@ -1,0 +1,11 @@
+{
+  "notes": [
+    "The party's table, the bottom layer, transparent over the section's gold band."
+  ],
+  "output": "bday-table.svg",
+  "viewBox": [-88, -54, 176, 100],
+  "items": [
+    { "object": "party-table-left", "depth": "back", "at": { "px": [0, 0] }, "order": 0 },
+    { "object": "party-table-right", "depth": "back", "at": { "px": [0, 0] }, "order": 0 }
+  ]
+}

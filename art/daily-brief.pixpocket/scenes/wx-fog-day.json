@@ -1,0 +1,14 @@
+{
+  "notes": [
+    "A layer of the weather strip by day: fog. The page stacks the layers a kind needs, bottom to top, on one anchor."
+  ],
+  "output": "wx-fog-day.svg",
+  "viewBox": [-88, -44, 176, 64],
+  "items": [
+    { "object": "weather-fog-56x8-day", "depth": "back", "state": "slide-0", "at": { "px": [-40, -18] }, "order": 0 },
+    { "object": "weather-fog-52x8-day", "depth": "back", "state": "slide-1", "at": { "px": [32, -16] }, "order": 1 },
+    { "object": "weather-fog-64x8-day", "depth": "back", "state": "slide-2", "at": { "px": [-10, -8] }, "order": 2 },
+    { "object": "weather-fog-40x8-day", "depth": "back", "state": "slide-0", "at": { "px": [-54, 0] }, "order": 3 },
+    { "object": "weather-fog-40x8-day", "depth": "back", "state": "slide-1", "at": { "px": [56, 0] }, "order": 4 }
+  ]
+}

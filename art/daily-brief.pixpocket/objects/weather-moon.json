@@ -1,0 +1,47 @@
+{
+  "notes": [
+    "The moon: a pale rounded cube on the 2:1 grid, cream on top, pale down its left face, in shade down its right. No face; it stands still.",
+    "Place it by pixel (px) at [-54, -24] on the strip's anchor, where the sun is by day."
+  ],
+  "category": [
+    "Daily Brief",
+    "Weather"
+  ],
+  "kind": "sprite",
+  "anchor": [12, 12],
+  "keys": {
+    "a": "cream",
+    "b": "path-1",
+    "c": "path-3"
+  },
+  "layers": [
+    {
+      "map": [
+        ".........aaaaaa.........",
+        ".......aaaaaaaaaa.......",
+        ".....aaaaaaaaaaaaaa.....",
+        "...aaaaaaaaaaaaaaaaaa...",
+        ".aaaaaaaaaaaaaaaaaaaaaa.",
+        "aaaaaaaaaaaaaaaaaaaaaaaa",
+        "aaaaaaaaaaaaaaaaaaaaaaaa",
+        "baaaaaaaaaaaaaaaaaaaaaac",
+        "bbbaaaaaaaaaaaaaaaaaaccc",
+        "bbbbbaaaaaaaaaaaaaaccccc",
+        "bbbbbbbaaaaaaaaaaccccccc",
+        "bbbbbbbbbaaaaaaccccccccc",
+        "bbbbbbbbbbbbcccccccccccc",
+        "bbbbbbbbbbbbcccccccccccc",
+        "bbbbbbbbbbbbcccccccccccc",
+        "bbbbbbbbbbbbcccccccccccc",
+        "bbbbbbbbbbbbcccccccccccc",
+        "bbbbbbbbbbbbcccccccccccc",
+        "bbbbbbbbbbbbcccccccccccc",
+        ".bbbbbbbbbbbccccccccccc.",
+        "...bbbbbbbbbccccccccc...",
+        ".....bbbbbbbccccccc.....",
+        ".......bbbbbccccc.......",
+        ".........bbbccc........."
+      ]
+    }
+  ]
+}
