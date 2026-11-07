@@ -1,7 +1,7 @@
 # daily-briefing
 
 Scrapes the news, shows my favorite podcasts, and shares new relevant articles related to AI development, plus a
-Davao City food/café pick. It runs daily in GitHub Actions, uses Claude to summarize, and publishes to GitHub Pages
+Davao City food/café pick and today's Davao weather (MET Norway, the forecast behind yr.no). It runs daily in GitHub Actions, uses Claude to summarize, and publishes to GitHub Pages
 as an RSS feed (plus a Markdown artifact).
 
 - **Feed:** https://jlawcordova.com/daily-briefing/feed.xml (full briefing in each item)

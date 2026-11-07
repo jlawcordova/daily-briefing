@@ -5,7 +5,7 @@ from __future__ import annotations
 from datetime import UTC, datetime
 from zoneinfo import ZoneInfo
 
-from ..models import Briefing, Episode, Feature, ForumPost, Item, SourceResult
+from ..models import Briefing, Episode, Feature, ForumPost, Item, SourceResult, Weather
 from ..util import format_duration
 
 SECTIONS = [
@@ -163,6 +163,17 @@ class Renderer:
             out.append(f"- **Sources (recent):** {refs}")
         return out + [""]
 
+    def weather(self, w: Weather) -> list[str]:
+        head = f"**{esc(w.place)}:** {w.summary or w.kind} · {w.high}° / {w.low}°C"
+        if w.precipitation_mm:
+            head += f" · {w.precipitation_mm:g} mm rain"
+        out = [head, "", f"- **Sky:** `{w.kind}`"]
+        if w.url:
+            out.append(f"- **Forecast:** [yr.no]({w.url}) (MET Norway)")
+        else:
+            out.append("- **Forecast:** MET Norway (yr.no)")
+        return out + [""]
+
     # ---------------------------------------------------------------- section
     def source_block(self, r: SourceResult) -> list[str]:
         out = [f"### {esc(r.name)}"]
@@ -208,6 +219,11 @@ class Renderer:
                 toc.append(f"[{title.split(' ', 1)[1]}](#{anchor(title)}) ({n})")
         lines += ["## Contents", "- " + " · ".join(toc), ""]
 
+        if b.weather is not None:
+            lines += ["## ⛅ Weather", ""] + self.weather(b.weather)
+        elif b.weather_report is not None:
+            lines += ["## ⛅ Weather", "", f"_No forecast today: {esc(b.weather_report.notes)}_", ""]
+
         for key, title in SECTIONS:
             results = b.sections.get(key)
             if results is None:
@@ -235,6 +251,9 @@ class Renderer:
             for r in b.sections.get(key, []):
                 notes = esc(r.notes.replace("\n", " "))[:200]
                 lines.append(f"| {esc(r.name)} | {key} | {STATUS_ICON[r.status]} | {r.fetched} | {r.new} | {notes} |")
+        if (r := b.weather_report) is not None:
+            notes = esc(r.notes.replace("\n", " "))[:200]
+            lines.append(f"| {esc(r.name)} | weather | {STATUS_ICON[r.status]} | {r.fetched} | {r.new} | {notes} |")
         return "\n".join(lines).rstrip() + "\n"
 
 

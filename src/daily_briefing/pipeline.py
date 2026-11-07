@@ -20,8 +20,9 @@ from .collectors.body import enrich_bodies
 from .collectors.hackernews import collect_hackernews
 from .collectors.podcast import collect_podcast
 from .collectors.rss import collect_rss
+from .collectors.weather import collect_weather
 from .config import BriefingConfig
-from .models import Briefing, Category, Feature, Item, SourceResult
+from .models import Briefing, Category, Feature, Item, SourceResult, Weather
 from .render.markdown import render_markdown
 from .state import Ledger, feature_key
 
@@ -104,6 +105,23 @@ def _run_task(task: Task, ctx: Context) -> SourceResult:
     return res
 
 
+def _weather(ctx: Context, cfg: BriefingConfig) -> tuple[Weather | None, SourceResult]:
+    assert cfg.weather is not None
+    res = SourceResult(name=cfg.weather.name, category="weather")
+    try:
+        weather = collect_weather(ctx, cfg.weather)
+    except Exception as e:
+        log.exception("weather failed")
+        res.status, res.notes = "error", f"{type(e).__name__}: {e}"[:300]
+        return None, res
+    if weather is None:
+        res.status, res.notes = "warn", "no forecast hours left today"
+    else:
+        res.fetched = res.new = 1
+        res.notes = f"{weather.kind}, {weather.high}°/{weather.low}°"
+    return weather, res
+
+
 def run_briefing(
     cfg: BriefingConfig,
     ledger: Ledger,
@@ -168,6 +186,11 @@ def run_briefing(
                     fr.status, fr.notes = "error", f"{type(e).__name__}: {e}"[:300]
             feature_results.append(fr)
 
+    # 4b. Today's weather (deterministic, no agent).
+    weather, weather_report = None, None
+    if cfg.weather and cfg.weather.enabled and (not only or "weather" in only):
+        weather, weather_report = _weather(ctx, cfg)
+
     # 5. Enrich with Claude.
     budget_hit = False
     all_items = [it for _, r in results for it in r.items]
@@ -209,6 +232,8 @@ def run_briefing(
         budget_exhausted=budget_hit,
         ai_enabled=agent is not None,
         sections=sections,
+        weather=weather,
+        weather_report=weather_report,
     )
     out_dir.mkdir(parents=True, exist_ok=True)
     md_path = out_dir / f"briefing-{today.isoformat()}.md"
@@ -219,5 +244,7 @@ def run_briefing(
     ledger.write_pending(pending_path)
 
     attempted = [r for rs in sections.values() for r in rs if r.status != "skipped"]
+    if weather_report is not None:
+        attempted.append(weather_report)
     all_failed = bool(attempted) and all(r.status == "error" for r in attempted)
     return RunOutput(briefing, md_path, json_path, pending_path, all_failed)

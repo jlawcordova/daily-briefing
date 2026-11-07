@@ -7,7 +7,7 @@ from typing import Literal
 
 from pydantic import BaseModel, Field, SerializeAsAny
 
-Category = Literal["news", "podcast", "article", "forum", "feature"]
+Category = Literal["news", "podcast", "article", "forum", "feature", "weather"]
 
 
 class Item(BaseModel):
@@ -99,6 +99,24 @@ class SourceResult(BaseModel):
     show: ShowInfo | None = None
 
 
+WeatherKind = Literal[
+    "sun", "fair", "partly", "cloudy", "fog", "drizzle", "showers", "rain", "heavy-rain", "thundershowers", "storm"
+]
+
+
+class Weather(BaseModel):
+    """Today's weather at one place: the Daily Brief page draws its sky from `kind`."""
+
+    place: str
+    date: str
+    kind: WeatherKind
+    high: int
+    low: int
+    precipitation_mm: float = 0.0
+    summary: str = ""
+    url: str | None = None
+
+
 class Briefing(BaseModel):
     date: str
     generated_at: datetime
@@ -108,3 +126,5 @@ class Briefing(BaseModel):
     budget_exhausted: bool = False
     ai_enabled: bool = True
     sections: dict[Category, list[SourceResult]]
+    weather: Weather | None = None
+    weather_report: SourceResult | None = None

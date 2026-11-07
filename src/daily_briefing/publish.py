@@ -25,7 +25,9 @@ from .util import http_get
 log = logging.getLogger(__name__)
 DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 FEED_TITLE = "Daily Briefing"
-FEED_DESC = "News, podcasts, AI-development articles, forums, and a Davao food pick, summarized by Claude."
+FEED_DESC = (
+    "Davao weather, news, podcasts, AI-development articles, forums, and a Davao food pick, summarized by Claude."
+)
 
 
 @dataclass
@@ -67,6 +69,8 @@ def entry_from_briefing(b: Briefing, markdown_text: str) -> Entry:
     feature = next((i for r in b.sections.get("feature", []) for i in r.items), None)
     if feature is not None:
         summary += f" · Feature: {getattr(feature, 'place_name', feature.title)}"
+    if b.weather is not None:
+        summary += f" · Weather: {b.weather.summary or b.weather.kind}, {b.weather.high}°/{b.weather.low}°C"
     return Entry(b.date, title, b.generated_at.isoformat(), summary)
 
 

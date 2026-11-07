@@ -54,6 +54,12 @@ forums:
     min_points: 30
     max_items: 10
 
+weather:                           # today's forecast from MET Norway (the data behind yr.no), no AI
+  place: Davao City
+  lat: 7.07
+  lon: 125.61
+  link: https://www.yr.no/en/forecast/daily-table/2-1715348/Philippines/Davao%20Region/Province%20of%20Davao%20del%20Sur/Davao%20City
+
 features:
   - name: Davao Food & Café Pick
     type: local_food
