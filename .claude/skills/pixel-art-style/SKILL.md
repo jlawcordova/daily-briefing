@@ -24,10 +24,11 @@ below name: weather, icons, characters, backgrounds, anything.
   clouds on a colored backdrop, no side-view rain, no icons drawn face-on,
   no shapes outlined in ink. If a piece would read the same drawn in a
   paint program without the grid, it's wrong.
-- **Give it ground.** A piece stands on something on the grid (a tile, a
+- **Give it depth.** A piece stands on something on the grid (a tile, a
   block, a table, a patch of street) so its depth reads. What floats (a
-  cloud, the sun) is still a solid on the grid, its shadow or its light on the
-  ground below.
+  cloud, the sun) is still a solid on the grid, a rounded box with a lit top
+  and shaded sides. Sky art needs no ground: the weather strip is only sky,
+  by the owner's call.
 - **A backdrop is only a backdrop.** The spot's sky of rays is a flat layer
   *behind* an isometric table and food. A flat layer may sit behind the
   subject; it is never the subject.
@@ -124,8 +125,11 @@ The Daily Brief's (from its reviews):
 - **Weather has no faces either.** The sun, the moon and the clouds are weather, not characters.
 - **Weather is isometric too.** A flat, side-on weather sky (a colored backdrop with a disc sun and round
   clouds on it) was rejected: the weather strip is drawn on the 2:1 grid like every other piece, clouds
-  blocked out in boxes and pucks with lit tops and shaded right faces, rain landing on ground drawn on the
-  grid (see **The one rule**).
+  blocked out in rounded boxes with lit tops and shaded right faces (see **The one rule**). It is only sky,
+  with no ground under it: rain falls out of the bottom of the strip.
+- **The sky's things are rounded cubes and prisms.** The sun, the moon and the clouds are boxes with
+  rounded corners (`box` with `r`), lit top, mid left face, dark right face, a cloud a slab with smaller
+  rounded boxes stacked on it: not balls, domes or discs.
 - **The page plays SMIL, not CSS.** The artifact's asset store strips an
   SVG's `<style>` and `<animate>`, so the SVGs are converted
   (`art/generators/smil.py`) and given to the page as its own files.
