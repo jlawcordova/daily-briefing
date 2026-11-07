@@ -1,0 +1,13 @@
+{
+  "notes": [
+    "food-dumplings and the glints that twinkle on it, alone: the page's top layer, over any table."
+  ],
+  "output": "brief-food-dumplings.svg",
+  "viewBox": [-88, -58, 176, 110],
+  "items": [
+    { "object": "food-dumplings", "at": { "px": [0, 0] }, "order": 1 },
+    { "object": "brief-glint", "depth": "front", "state": "twinkle-0", "at": { "px": [-14, -22] } },
+    { "object": "brief-glint", "depth": "front", "state": "twinkle-1", "at": { "px": [12, -24] } },
+    { "object": "brief-glint", "depth": "front", "state": "twinkle-2", "at": { "px": [20, -8] } }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "notes": [
+    "The wood table alone, the page's middle layer, clear around it so the light shows."
+  ],
+  "output": "brief-table-wood.svg",
+  "viewBox": [-88, -58, 176, 110],
+  "items": [
+    { "object": "table-wood-left", "at": { "px": [0, 0] }, "order": 0 },
+    { "object": "table-wood-right", "at": { "px": [0, 0] }, "order": 0 }
+  ]
+}

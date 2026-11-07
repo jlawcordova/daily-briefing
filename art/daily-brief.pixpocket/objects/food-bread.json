@@ -1,0 +1,69 @@
+{
+  "notes": [
+    "A scored loaf and two pan de sal on a wooden board, crumbs about.",
+    "Its anchor is the middle of what it stands on: place it by pixel (px) on the table's anchor, after the table."
+  ],
+  "category": [
+    "Daily Brief",
+    "Food"
+  ],
+  "kind": "sprite",
+  "anchor": [30, 23],
+  "keys": {
+    "a": "clay-1",
+    "b": "gold-1",
+    "c": "clay-2",
+    "d": "wood-1",
+    "e": "clay-3",
+    "f": "wood-2",
+    "g": "path-1",
+    "h": "clay-4",
+    "i": "wood-3"
+  },
+  "layers": [
+    {
+      "map": [
+        "..................aa........................................",
+        "..............aaaaaaaaaa....................................",
+        "............aaaaaaaaaaaaaa..................................",
+        "...........aaaaaaabaaaaaaaaa................................",
+        "..........ccaaaabbaaaaaaabaaaa..............................",
+        "..........ccccabbaaaaaaaabbaaaaa............................",
+        "..........ccccbbaaaaaaaabbaaaaaaaa..........................",
+        "..........ccccccccaaaaabbaaaaaaaaaaa........................",
+        "..........ccccccccccaabbbaaaaaaabbaaaa......................",
+        "..........ccccccccccccbbaaaaaaabbbaaaaaa....................",
+        "..........ccccccccccccbcaaaaaaabbaaaaaaaa...................",
+        "..........ccccccccccccccccaaaabbaaaaaaabaa..................",
+        ".........dccccccccccccccccccabbaaaaaaaaaaa..................",
+        ".......dddccccccccccccccccccbbaaaaaaaaaaae..................",
+        ".....dddddccccccccccccccccccccccaaaaaaaaeed.................",
+        "...ddddddddcccccccccccccccccccccccaaaaeeeeddd...............",
+        ".dddddddddddcccccccccccccccccccccceeeeeeeeddddd.............",
+        "ddddddddddddddccccccccccccccccccceeeeeeeeeddddddd...........",
+        "ddddddddddddddddccccccccccccccccceeeeeeeeeddddddddd.........",
+        "fdddddddddddddddddccccccccccccccceeeeaagaacdddddddddd.......",
+        "fffdddddddddddddddddccccccccccccceeeaaaaagccddddddddddd.....",
+        "fffffdddddddddddddddddccccccccccceeaaaaaccccedddddddddddd...",
+        "fffffffdddddddddddddddddccccccccceeaaaacccceedddddddddddddd.",
+        ".ffffffffdddddddddddddddddcccaagaacaaaccccceehcddddddddddddd",
+        "...ffffffffdddddddddddddddddaaaaagccacccceeeehdddddddddddddd",
+        ".....ffffffffdddcddddddddddaaaaacccceccceeeeehdddddddddddddi",
+        ".......ffffffffddddddddddddaaaacccceeccceeehhddddddddddddiii",
+        ".........ffffffffdddddddddaaaaccccceeheeeeeddddddddddddiiiii",
+        "...........ffffffffdddddddaaacccceeeehdddddddddddddddiiiiiii",
+        ".............fffffcffdddddcccccceeeeehdddddddddddddiiiiiiii.",
+        "...............ffffffffddddccccceeehhddddddddddddiiiiiiii...",
+        ".................ffffffffddddceeeeeddddddddddddiiiiiiii.....",
+        "...................ffffffffddddddddddddddddddiiiiiiii.......",
+        ".....................ffffffffddddddddddddddiiiiiiii.........",
+        ".......................ffffffffddddddddddiiiiiiii...........",
+        ".........................ffffffffddddddiiiiiiii.............",
+        "...........................fffffffffiiiiiiiii...............",
+        ".............................fffffffiiiiiii.................",
+        "...............................fffffiiiii...................",
+        ".................................fffiii....................."
+      ]
+    }
+  ]
+}

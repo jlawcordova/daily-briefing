@@ -1,0 +1,11 @@
+{
+  "notes": [
+    "The cafe table alone, the page's middle layer, clear around it so the light shows."
+  ],
+  "output": "brief-table-cafe.svg",
+  "viewBox": [-88, -58, 176, 110],
+  "items": [
+    { "object": "table-cafe-left", "at": { "px": [0, 0] }, "order": 0 },
+    { "object": "table-cafe-right", "at": { "px": [0, 0] }, "order": 0 }
+  ]
+}

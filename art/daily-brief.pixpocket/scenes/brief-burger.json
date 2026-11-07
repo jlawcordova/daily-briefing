@@ -1,0 +1,18 @@
+{
+  "notes": [
+    "The spot of the day as the page shows it: food-burger on the wood table under gold rays. The table and the food stand still; the rays turn and glints twinkle."
+  ],
+  "viewBox": [-88, -58, 176, 110],
+  "items": [
+    { "object": "brief-sky-gold-left", "depth": "back", "at": { "px": [0, 0] }, "order": 0 },
+    { "object": "brief-sky-gold-right", "depth": "back", "at": { "px": [0, 0] }, "order": 0 },
+    { "object": "brief-rays-gold-left", "depth": "back", "at": { "px": [0, 0] }, "order": 1 },
+    { "object": "brief-rays-gold-right", "depth": "back", "at": { "px": [0, 0] }, "order": 1 },
+    { "object": "table-wood-left", "at": { "px": [0, 0] }, "order": 0 },
+    { "object": "table-wood-right", "at": { "px": [0, 0] }, "order": 0 },
+    { "object": "food-burger", "at": { "px": [0, 0] }, "order": 1 },
+    { "object": "brief-glint", "depth": "front", "state": "twinkle-0", "at": { "px": [-12, -26] } },
+    { "object": "brief-glint", "depth": "front", "state": "twinkle-1", "at": { "px": [10, -30] } },
+    { "object": "brief-glint", "depth": "front", "state": "twinkle-2", "at": { "px": [20, -12] } }
+  ]
+}

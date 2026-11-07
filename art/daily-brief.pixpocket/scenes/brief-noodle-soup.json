@@ -1,0 +1,18 @@
+{
+  "notes": [
+    "The spot of the day as the page shows it: food-noodle-soup on the wood table under plum rays. The table and the food stand still; the rays turn and glints twinkle."
+  ],
+  "viewBox": [-88, -58, 176, 110],
+  "items": [
+    { "object": "brief-sky-plum-left", "depth": "back", "at": { "px": [0, 0] }, "order": 0 },
+    { "object": "brief-sky-plum-right", "depth": "back", "at": { "px": [0, 0] }, "order": 0 },
+    { "object": "brief-rays-plum-left", "depth": "back", "at": { "px": [0, 0] }, "order": 1 },
+    { "object": "brief-rays-plum-right", "depth": "back", "at": { "px": [0, 0] }, "order": 1 },
+    { "object": "table-wood-left", "at": { "px": [0, 0] }, "order": 0 },
+    { "object": "table-wood-right", "at": { "px": [0, 0] }, "order": 0 },
+    { "object": "food-noodle-soup", "at": { "px": [0, 0] }, "order": 1 },
+    { "object": "brief-glint", "depth": "front", "state": "twinkle-0", "at": { "px": [-18, -20] } },
+    { "object": "brief-glint", "depth": "front", "state": "twinkle-1", "at": { "px": [14, -26] } },
+    { "object": "brief-glint", "depth": "front", "state": "twinkle-2", "at": { "px": [22, -10] } }
+  ]
+}

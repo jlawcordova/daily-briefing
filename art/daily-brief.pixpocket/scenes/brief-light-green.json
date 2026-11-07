@@ -1,0 +1,13 @@
+{
+  "notes": [
+    "The spot of the day's green light, the page's bottom layer: the sky and its rays, turning, cream near the food."
+  ],
+  "output": "brief-light-green.svg",
+  "viewBox": [-88, -58, 176, 110],
+  "items": [
+    { "object": "brief-sky-green-left", "depth": "back", "at": { "px": [0, 0] }, "order": 0 },
+    { "object": "brief-sky-green-right", "depth": "back", "at": { "px": [0, 0] }, "order": 0 },
+    { "object": "brief-rays-green-left", "depth": "back", "at": { "px": [0, 0] }, "order": 1 },
+    { "object": "brief-rays-green-right", "depth": "back", "at": { "px": [0, 0] }, "order": 1 }
+  ]
+}

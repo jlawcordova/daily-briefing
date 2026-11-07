@@ -1,0 +1,13 @@
+{
+  "notes": [
+    "food-skewers and the glints that twinkle on it, alone: the page's top layer, over any table."
+  ],
+  "output": "brief-food-skewers.svg",
+  "viewBox": [-88, -58, 176, 110],
+  "items": [
+    { "object": "food-skewers", "at": { "px": [0, 0] }, "order": 1 },
+    { "object": "brief-glint", "depth": "front", "state": "twinkle-0", "at": { "px": [-14, -10] } },
+    { "object": "brief-glint", "depth": "front", "state": "twinkle-1", "at": { "px": [10, -20] } },
+    { "object": "brief-glint", "depth": "front", "state": "twinkle-2", "at": { "px": [22, -2] } }
+  ]
+}

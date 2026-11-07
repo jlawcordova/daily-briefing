@@ -1,0 +1,13 @@
+{
+  "notes": [
+    "food-coffee and the glints that twinkle on it, alone: the page's top layer, over any table."
+  ],
+  "output": "brief-food-coffee.svg",
+  "viewBox": [-88, -58, 176, 110],
+  "items": [
+    { "object": "food-coffee", "at": { "px": [0, 0] }, "order": 1 },
+    { "object": "brief-glint", "depth": "front", "state": "twinkle-0", "at": { "px": [-9, -18] } },
+    { "object": "brief-glint", "depth": "front", "state": "twinkle-1", "at": { "px": [8, -30] } },
+    { "object": "brief-glint", "depth": "front", "state": "twinkle-2", "at": { "px": [16, -6] } }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "notes": [
+    "Three scoops in a paper cup, ube, mango and vanilla, a cherry on top and a wafer stuck in.",
+    "Its anchor is the middle of what it stands on: place it by pixel (px) on the table's anchor, after the table."
+  ],
+  "category": [
+    "Daily Brief",
+    "Food"
+  ],
+  "kind": "sprite",
+  "anchor": [17, 36],
+  "keys": {
+    "a": "gold-1",
+    "b": "wood-3",
+    "c": "gold-2",
+    "d": "roof-1",
+    "e": "roof-2",
+    "f": "roof-3",
+    "g": "plum-2",
+    "h": "plum-1",
+    "i": "plum-3",
+    "j": "clay-1",
+    "k": "plum-4",
+    "l": "cream",
+    "m": "path-1",
+    "n": "path-2",
+    "o": "path-3"
+  },
+  "layers": [
+    {
+      "map": [
+        "...........................aa.....",
+        "....................b......aacc...",
+        "...................b.......aacc...",
+        "...................b.......aacc...",
+        "...............dddb........aacc...",
+        "..............dddeee.......aacc...",
+        "..............ddeeee.......aacc...",
+        ".............ddeeeeff......aacc...",
+        ".............deeeefff......aacc...",
+        ".............eeeeffffg.....aacc...",
+        ".............heeffffggg....aacc...",
+        "............hhhhhggggggi...aacc...",
+        "......jjjjjhhhhhgggggggiihgaacc...",
+        ".....jjjjjjhhhhgggggggiiiggaacc...",
+        "....jjjjjjhhhhgggggggiiiiigggcc...",
+        "...jjjjjjjhhhhggggggiiiiikggggg...",
+        "..jjjjjjjjhhgggggggiiiiiikggggii..",
+        ".jjjjjjjjjhgggggggiiiiiikkggggiii.",
+        ".jjjjjjjjjjgggggggiiiiikkggggiiii.",
+        "jjjjjjjjjjllgggggiiiiikkggggiiiiik",
+        "jjjjjjjjjlllllggiiiiiillmgggiiiiik",
+        "jjjjjjjjjllllllllllllllmmggiiiiikk",
+        "jjjjjjjjlllllllllllllllmmmiiiiiikk",
+        "jjjjjjjlllllllllllllllmmmmniiiikkk",
+        "jjjjjjjllllllllllllllmmmmmniiiikkk",
+        ".jjjjjjlllllllllllllmmmmmmniiikkk.",
+        ".lljjjjllllllllllllmmmmmmnniikkll.",
+        "..lliijlllllllllllmmmmmmmnniiill..",
+        "..hlliillllllllllmmmmmmmnnniilli..",
+        "..hhlliilllllllllmmmmmmnnniillii..",
+        "...hhllliilllllmmmmmmmnniilllii...",
+        "...hhhhhllllilmmmmmmmilllliiiii...",
+        "...hhhhhhggllllllllllllgiiiiiii...",
+        "..oohhhhhgggggggggggggggiiiiiioo..",
+        ".ooohhhhhhggggggggggggggiiiiiiooo.",
+        ".oooohhhhhggggggggggggggiiiiioooo.",
+        ".oooohhhhhggggggggggggggiiiiioooo.",
+        ".oooohhhhhgggggggggggggiiiiiioooo.",
+        "..oooohhhhgggggggggggggiiiiioooo..",
+        "...oooohhhhggggggggggggiiiioooo...",
+        "....ooooohhggggggggggggiiooooo....",
+        ".....oooooooggggggggggooooooo.....",
+        "........oooooooooooooooooo........",
+        "...........oooooooooooo..........."
+      ]
+    }
+  ]
+}

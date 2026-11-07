@@ -1,0 +1,18 @@
+{
+  "notes": [
+    "The spot of the day as the page shows it: food-ice-cream on the cafe table under sunset rays. The table and the food stand still; the rays turn and glints twinkle."
+  ],
+  "viewBox": [-88, -58, 176, 110],
+  "items": [
+    { "object": "brief-sky-sunset-left", "depth": "back", "at": { "px": [0, 0] }, "order": 0 },
+    { "object": "brief-sky-sunset-right", "depth": "back", "at": { "px": [0, 0] }, "order": 0 },
+    { "object": "brief-rays-sunset-left", "depth": "back", "at": { "px": [0, 0] }, "order": 1 },
+    { "object": "brief-rays-sunset-right", "depth": "back", "at": { "px": [0, 0] }, "order": 1 },
+    { "object": "table-cafe-left", "at": { "px": [0, 0] }, "order": 0 },
+    { "object": "table-cafe-right", "at": { "px": [0, 0] }, "order": 0 },
+    { "object": "food-ice-cream", "at": { "px": [0, 0] }, "order": 1 },
+    { "object": "brief-glint", "depth": "front", "state": "twinkle-0", "at": { "px": [-10, -26] } },
+    { "object": "brief-glint", "depth": "front", "state": "twinkle-1", "at": { "px": [6, -40] } },
+    { "object": "brief-glint", "depth": "front", "state": "twinkle-2", "at": { "px": [14, -18] } }
+  ]
+}
