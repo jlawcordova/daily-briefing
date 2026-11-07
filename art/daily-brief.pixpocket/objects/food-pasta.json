@@ -1,0 +1,71 @@
+{
+  "notes": [
+    "Spaghetti twirled into a mound on a plate, tomato sauce, basil and parmesan on top, a fork beside it.",
+    "Its anchor is the middle of what it stands on: place it by pixel (px) on the table's anchor, after the table."
+  ],
+  "category": [
+    "Daily Brief",
+    "Food"
+  ],
+  "kind": "sprite",
+  "anchor": [29, 19],
+  "keys": {
+    "a": "roof-1",
+    "b": "roof-2",
+    "c": "grass-2",
+    "d": "grass-3",
+    "e": "cream",
+    "f": "gold-1",
+    "g": "roof-3",
+    "h": "clay-1",
+    "i": "clay-2",
+    "j": "path-1",
+    "k": "clay-3",
+    "l": "stone-1",
+    "m": "stone-2",
+    "n": "stone-3",
+    "o": "path-3",
+    "p": "path-2"
+  },
+  "layers": [
+    {
+      "map": [
+        "........................aaaabbbb............................",
+        ".....................aaaaaccdaabbbb.........................",
+        "...................aaaaaaccccdaabbbbb.......................",
+        "..................aaaaaaaaccaaabbbbbbb......................",
+        ".................aaaaaaaaaaaaabbebbbbbbf....................",
+        "................aaaaaaaaaaaaabbbbbbbbbbgf...................",
+        "..............eeaaaaaaaeaaaabbbbbbebbbbgffee................",
+        "...........eeeehaaaaaaaaabbbbbebbbbbbbbghhheeee.............",
+        ".........eeeehffabaabaaabbbbbbbbbbbbbbgghhiiheeee...........",
+        ".......eeeeefffffbbbbbbbbbbbbbbbbbbbgggfhhiiiheeeee.........",
+        "......eeeeejffffffbbbbbbbbbbbbbbbbggggfffiiiiijeeeee........",
+        "....eeeeejjffffhhhhhbbbbbbbbbbbbbbggffffhhhiiiijjeeeee......",
+        "...eeeeejjjffhhhhhhhfffbbbbbbbbbbhhhhffhhhhhiiijjjeeeee.....",
+        "..eeeeejjjffhhhhhfffffffffffffffffhhhhhhhhhhiiikjjjeeeee....",
+        ".eeeeejjjefhhhhhffffffffhhhhfffffffhhhihhhhhhiikejjjeeeee...",
+        ".eeeejjjeehhhhhffffffhhhhhhhhhfffffhiiihhhhhhikkeejjjeeee...",
+        "eeeeejjeeehhhhffffffhhhhfffffhfffffhiiihhhhhhikkeeejjeeeee.l",
+        "eeeejjjeeehhhffffffhhhhfffffhfffffiiiihhhhhhikkkeeejjjeeellm",
+        "eeeejjeeeehhhffffffhhhhfffffhhhhhhiiihhhhhhikkkkeeeejjeelmml",
+        "eeeejjeeeeehhffffffhhhhfffffffhhiihhhhhhhhikkkkeeeeejjelml..",
+        "eeeejjeeeeehhhffffffhhhhfffffffhhhhhhhhhhikkkkieeeeejllnne..",
+        "eeeeejeeeeeehhfffffffhhhhhffffhhhhhhhhiiiikkkieeeeellnneee..",
+        "jeeeejjeeeeeeehfffffffhhhhhhiiiiiiiiiiiiikkieeeeellnneeeeo..",
+        "jeeeeejeeeeeeeehhffffffffhhiiiiiiiiiiiikiiieeeellnnjeeeeeo..",
+        ".jeeeeejeeeeeeeeehfffffffhhhhhiiiihhhhiiieeeellnnejeeeeeo...",
+        ".jjeeeeejeeeeeeeeeeeefffhhhhhhhhhhhhheeeeeellnneejeeeeeoo...",
+        "..jjeeeeejeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeenneeejeeeeeoo....",
+        "...jjjeeeeejeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeejeeeeeooo.....",
+        "....jjjeeeeeejeeeeeeeeeeeeeeeeeeeeeeeeeeeeeejeeeeeeooo......",
+        "......jjjeeeeeejeeeeeeeeeeeeeeeeeeeeeeeeeejeeeeeeooo........",
+        ".......jjjjeeeeeeeejeeeeeeeeeeeeeeeeeejeeeeeeeeoooo.........",
+        ".........jjjjjeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeooooo...........",
+        "...........jjjjjjjeeeeeeeeeeeeeeeeeeeeeeooooooo.............",
+        "..............jjjjjppppppppppppppppppppooooo................",
+        "..................jppppppppppppppppppppo...................."
+      ]
+    }
+  ]
+}

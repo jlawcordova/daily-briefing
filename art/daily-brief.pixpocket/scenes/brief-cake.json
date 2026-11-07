@@ -1,0 +1,18 @@
+{
+  "notes": [
+    "The spot of the day as the page shows it: food-cake on the fine table under teal rays. The table and the food stand still; the rays turn and glints twinkle."
+  ],
+  "viewBox": [-88, -58, 176, 110],
+  "items": [
+    { "object": "brief-sky-teal-left", "depth": "back", "at": { "px": [0, 0] }, "order": 0 },
+    { "object": "brief-sky-teal-right", "depth": "back", "at": { "px": [0, 0] }, "order": 0 },
+    { "object": "brief-rays-teal-left", "depth": "back", "at": { "px": [0, 0] }, "order": 1 },
+    { "object": "brief-rays-teal-right", "depth": "back", "at": { "px": [0, 0] }, "order": 1 },
+    { "object": "table-fine-left", "at": { "px": [0, 0] }, "order": 0 },
+    { "object": "table-fine-right", "at": { "px": [0, 0] }, "order": 0 },
+    { "object": "food-cake", "at": { "px": [0, 0] }, "order": 1 },
+    { "object": "brief-glint", "depth": "front", "state": "twinkle-0", "at": { "px": [-16, -20] } },
+    { "object": "brief-glint", "depth": "front", "state": "twinkle-1", "at": { "px": [10, -26] } },
+    { "object": "brief-glint", "depth": "front", "state": "twinkle-2", "at": { "px": [20, -6] } }
+  ]
+}

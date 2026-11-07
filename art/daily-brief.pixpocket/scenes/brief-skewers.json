@@ -1,0 +1,18 @@
+{
+  "notes": [
+    "The spot of the day as the page shows it: food-skewers on the grill table under green rays. The table and the food stand still; the rays turn and glints twinkle."
+  ],
+  "viewBox": [-88, -58, 176, 110],
+  "items": [
+    { "object": "brief-sky-green-left", "depth": "back", "at": { "px": [0, 0] }, "order": 0 },
+    { "object": "brief-sky-green-right", "depth": "back", "at": { "px": [0, 0] }, "order": 0 },
+    { "object": "brief-rays-green-left", "depth": "back", "at": { "px": [0, 0] }, "order": 1 },
+    { "object": "brief-rays-green-right", "depth": "back", "at": { "px": [0, 0] }, "order": 1 },
+    { "object": "table-grill-left", "at": { "px": [0, 0] }, "order": 0 },
+    { "object": "table-grill-right", "at": { "px": [0, 0] }, "order": 0 },
+    { "object": "food-skewers", "at": { "px": [0, 0] }, "order": 1 },
+    { "object": "brief-glint", "depth": "front", "state": "twinkle-0", "at": { "px": [-14, -10] } },
+    { "object": "brief-glint", "depth": "front", "state": "twinkle-1", "at": { "px": [10, -20] } },
+    { "object": "brief-glint", "depth": "front", "state": "twinkle-2", "at": { "px": [22, -2] } }
+  ]
+}

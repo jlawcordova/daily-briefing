@@ -6,3 +6,6 @@ output/
 .pytest_cache/
 .ruff_cache/
 site/
+.tools/
+art/build/
+.DS_Store
