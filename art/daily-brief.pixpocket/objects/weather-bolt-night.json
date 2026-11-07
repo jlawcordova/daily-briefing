@@ -1,6 +1,6 @@
 {
   "notes": [
-    "A lightning bolt from under the cloud down out of the strip, cream with a gold edge: it flashes twice, then the sky is still for nearly three seconds.",
+    "A lightning bolt by night from under the cloud down out of the strip, cream with a gold-1 edge: it flashes twice, then the sky is still for nearly three seconds.",
     "Place it by pixel (px) at the strip's anchor, under the clouds.",
     "States: flash (30 frames of 100 ms, looping)."
   ],

@@ -129,6 +129,9 @@ The Daily Brief's (from its reviews):
   with no ground under it: rain falls out of the bottom of the strip.
 - **The sky's things are rounded cubes and prisms.** The sun, the moon and the clouds are boxes with
   rounded corners (`box` with `r`), lit top, mid left face, dark right face: not balls, domes or discs.
+- **The weather is part of the header.** The weather strip has no backdrop and no frame: its SVGs are
+  transparent and sit straight on the title band, so pick its colors to read on the band (cream with its
+  grid by day, dark brown at night), not on a sky color.
 - **Clouds are cumulus.** A heap of rounded boxes in tiers, widest low and narrowing to a crown, the bottom
   tier side by side on one plane for the flat underside. No big slab under a cloud. Shadows lean blue and
   lavender (pale blue left faces, lavender right faces), not flat grey.

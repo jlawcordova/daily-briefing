@@ -6,7 +6,8 @@ The plan on the grid (the pixel-art-style skill's one rule):
 
 - The box is 176×64, as wide as the spot's stage; (0, 0) is a little below its middle. It is only sky:
   there is no ground (the owner's call), so what falls falls out of the bottom of the strip.
-- Behind everything, a flat sky color: only a backdrop.
+- No backdrop: the strip is transparent and has no frame, so the weather sits in the page's title band
+  (cream by day, dark brown at night) as part of the header. Its colors are picked to read on that band.
 - The sun and the moon are rounded cubes (`box`, r = 4): a lit top, a mid left face and a dark right
   face. The sun's rays lie on the grid's lines (straight up, down and across, and the four 2:1 lines)
   and pulse long and short in turn.
@@ -18,7 +19,7 @@ The plan on the grid (the pixel-art-style skill's one rule):
 - Fog is long, thin rounded slabs (`box`, three pixels deep) hanging in the air, sliding along a row and
   back. At night stars twinkle.
 
-Layers, bottom to top: sky, stars, sun or moon, rain, bolt, clouds, fog.
+Layers, bottom to top: stars (at night), sun or moon, rain, bolt, clouds, fog.
 Nothing has a face. Only what moves in weather moves."""
 from draw import *  # noqa: F401,F403
 from draw import Pic, cat, despeck, halves, save_scene, sprite
@@ -36,7 +37,7 @@ CAT = cat('Weather')
 KINDS = ['sun', 'fair', 'partly', 'cloudy', 'fog', 'drizzle', 'showers', 'rain', 'heavy-rain',
          'thundershowers', 'storm']
 
-# kind -> (sky tone, body?, wet layer, bolt layer, cloud layout, fog?)
+# kind -> (sky tone: how many stars show at night, body?, wet layer, bolt layer, cloud layout, fog?)
 PLAN = {
     'sun': ('clear', True, None, None, None, False),
     'fair': ('clear', True, None, None, 'fair', False),
@@ -51,11 +52,6 @@ PLAN = {
     'storm': ('dark', False, 'heavy', 'bolt', 'storm', False),
 }
 
-# The sky's color, by day and by night.
-SKY = {
-    ('clear', 'day'): 'glass-2', ('grey', 'day'): 'stone-2', ('dark', 'day'): 'stone-3', ('mist', 'day'): 'stone-1',
-    ('clear', 'night'): 'glass-4', ('grey', 'night'): 'plum-4', ('dark', 'night'): 'ink', ('mist', 'night'): 'glass-4',
-}
 # Stars at night (fewer where clouds or fog hide them).
 STARS = [(-80, -34), (-30, -38), (-8, -30), (14, -40), (34, -20), (52, -36), (76, -26), (-76, -10), (70, 4),
          (-26, 6), (84, -40), (-50, 12)]
@@ -214,7 +210,7 @@ WET = {
     'heavy': ((-84, 84), -10, 72, 4, 5, 6, 100),
 }
 RAIN = {('day', 'drizzle'): 'glass-4', ('day', 'shower'): 'glass-4', ('day', 'rain'): 'glass-4',
-        ('day', 'heavy'): 'glass-1', ('night', 'drizzle'): 'glass-2', ('night', 'shower'): 'glass-2',
+        ('day', 'heavy'): 'glass-3', ('night', 'drizzle'): 'glass-2', ('night', 'shower'): 'glass-2',
         ('night', 'rain'): 'glass-2', ('night', 'heavy'): 'glass-1'}
 def drops(name):
     """Each drop's column and phase, spread over the rain's width."""
@@ -261,16 +257,20 @@ FLASH = 30                      # the loop: 30 frames of 100 ms, the bolt in fra
 BOLTS = {'bolt': (6, -14, 20), 'bolt-shower': (38, -16, 20)}
 
 
-def bolt(x, y0, y1):
+BOLT = {'day': ('gold-2', 'clay-2'), 'night': ('cream', 'gold-1')}   # (core, edge): on the cream band, on the dark one
+
+
+def bolt(x, y0, y1, time):
+    core, edge = BOLT[time]
     path = bolt_path(x, y0, y1)
     frames = []
     for k in range(FLASH):
         p = Pic()
         if k in (0, 2):
             for (a, b) in path:
-                p.put(a, b, 'cream')
+                p.put(a, b, core)
             for (a, b) in path[1::2]:
-                p.put(a + 1, b, 'gold-1')
+                p.put(a + 1, b, edge)
         frames.append(p)
     return frames
 
@@ -301,14 +301,6 @@ def save(name, o):
     draw.save(obj(name), o)
 
 
-def fill(color):
-    p = Pic()
-    for x in range(X0, X0 + W):
-        for y in range(Y0, Y0 + H):
-            p.put(x, y, color)
-    return p
-
-
 def in_box(p):
     return Pic({q: c for q, c in p.items() if X0 <= q[0] < X0 + W and Y0 <= q[1] < Y0 + H})
 
@@ -324,10 +316,6 @@ def cloud_name(shape, tone, time):
 
 
 def build_objects():
-    for (tone, time), color in SKY.items():
-        save_halves(f'wx-sky-{tone}-{time}', [fill(color)], [
-            f'The {{side}} half of the weather strip\'s {tone} sky by {time}, one color ({color}): only a backdrop.',
-            'Place it by pixel (px) at the strip\'s anchor, at depth Back, under everything else.'])
     save('wx-sun', sprite([sun(k) for k in range(TURN)], CAT, [
         'The sun: a rounded cube on the 2:1 grid, gold on top, orange down its left face, deeper orange down its '
         'right, a cream glint on its top; its gold rays on the grid\'s lines (straight up, down and across, and the '
@@ -379,18 +367,19 @@ def build_objects():
                 save_halves(f'wx-{name}-{time}', frames, notes, states, 'fall')
             else:
                 save(f'wx-{name}-{time}', sprite(frames, CAT, notes, states=states, start='fall'))
-    for name, (x, y0, y1) in BOLTS.items():
-        save('wx-' + name, sprite(bolt(x, y0, y1), CAT, [
-            'A lightning bolt from under the cloud down out of the strip, cream with a gold edge: it flashes twice, '
-            'then the sky is still for nearly three seconds.',
+    for (name, (x, y0, y1)), time in ((b, t) for b in BOLTS.items() for t in ('day', 'night')):
+        core, edge = BOLT[time]
+        save(f'wx-{name}-{time}', sprite(bolt(x, y0, y1, time), CAT, [
+            f'A lightning bolt by {time} from under the cloud down out of the strip, {core} with a {edge} edge: it '
+            'flashes twice, then the sky is still for nearly three seconds.',
             'Place it by pixel (px) at the strip\'s anchor, under the clouds.',
             f'States: flash ({FLASH} frames of 100 ms, looping).'],
             states={'flash': {'frames': list(range(FLASH)), 'ms': 100}}, start='flash'))
-    for time, (lit, side) in (('day', ('cream', 'path-1')), ('night', ('stone-2', 'stone-3'))):
+    for time, (lit, side) in (('day', ('stone-1', 'stone-2')), ('night', ('stone-3', 'stone-4'))):
         for a, b in sorted({(f[2], f[3]) for f in FOG}):
             s = slab(a, b, lit, side)
             save(f'wx-fog-{a}x{b}-{time}', sprite([s.moved(-2 * d, d) for d in range(FOG_SLIDE + 1)], CAT, [
-                f'A fog bank {a}×{b} units by {time}: a long, thin rounded box hovering low over the grass, its top lit.',
+                f'A fog bank {a}×{b} units by {time}: a long, thin rounded box hanging in the air, its top lit.',
                 'Place it by pixel (px) at the middle of its top.',
                 f'States: slide-0, slide-1, slide-2 (it slides {FOG_SLIDE} steps along its row, two pixels across for '
                 'one down, and back, 1 s a step, at three phases).'], states=slide_states(), start='slide-0'))
@@ -409,8 +398,6 @@ def halves_items(name, state=None):
 
 def layer_items(layer, time):
     kind = layer[0]
-    if kind == 'sky':
-        return halves_items(f'wx-sky-{layer[1]}-{time}')
     if kind == 'stars':
         return [item(f'wx-star-{i % 5}', at, 'twinkle', i)
                 for i, at in sorted(enumerate(STARS[:STARS_BY_TONE[layer[1]]]), key=lambda e: (e[1][1], e[1][0]))]
@@ -422,7 +409,7 @@ def layer_items(layer, time):
             return halves_items(f'wx-{name}-{time}', 'fall')
         return [item(f'wx-{name}-{time}', state='fall')]
     if kind == 'bolt':
-        return [item('wx-' + layer[1], state='flash')]
+        return [item(f'wx-{layer[1]}-{time}', state='flash')]
     if kind == 'clouds':
         return [item(cloud_name(shape, tone, time), (x, y), f'drift-{ph}', i)
                 for i, (shape, tone, x, y, ph) in enumerate(sorted(LAYOUT[layer[1]], key=lambda c: (c[3], c[2])))]
@@ -435,7 +422,7 @@ def layer_items(layer, time):
 def layers(kind, time):
     """The layers of a kind's strip, bottom to top."""
     sky, body, wet_, bolt_, clouds, fog = PLAN[kind]
-    out = [('sky', sky)]
+    out = []
     if time == 'night' and STARS_BY_TONE[sky]:
         out.append(('stars', sky))
     if body:
@@ -453,8 +440,6 @@ def layers(kind, time):
 
 def layer_name(layer, time):
     k = layer[0]
-    if k == 'sky':
-        return f'wx-{k}-{layer[1]}-{time}'
     if k == 'stars':
         return f'wx-stars-{layer[1]}'
     if k == 'body':
@@ -462,7 +447,7 @@ def layer_name(layer, time):
     if k == 'wet':
         return f'wx-{layer[1]}-{time}'
     if k == 'bolt':
-        return 'wx-' + layer[1]
+        return f'wx-{layer[1]}-{time}'
     if k == 'clouds':
         return f'wx-clouds-{layer[1]}-{time}'
     return f'wx-fog-{time}'
