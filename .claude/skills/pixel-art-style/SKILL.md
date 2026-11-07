@@ -1,6 +1,6 @@
 ---
 name: pixel-art-style
-description: The house look of the Daily Brief's pixel art in art/ (isometric, drawn on Pixpocket's 2:1 grid by SLYNYRD's process), the limits Pixpocket puts on it, and the rules the owner's verdicts have set. Read before drawing or changing anything in art/daily-brief.pixpocket or art/generators/, so new art matches what's there.
+description: The house look of the Daily Brief's pixel art in art/, the limits Pixpocket puts on it, and the rules the owner's verdicts have set. Every piece is isometric, drawn on Pixpocket's 2:1 grid by SLYNYRD's process, never flat or side-on. Read before drawing, planning or changing anything in art/daily-brief.pixpocket or art/generators/, including new kinds of art (weather, icons, scenes), so new art matches what's there.
 ---
 
 # The Daily Brief's art style
@@ -12,7 +12,33 @@ owner's verdicts outrank anything below. When the owner reacts to how
 something looks, turn the reaction into a rule in **Taste** before acting on
 it, and change the rule when a later verdict overrides it.
 
-Look at what's there before you draw:
+## The one rule: every piece is isometric
+
+Everything drawn in this repo is an isometric SLYNYRD piece on the 2:1 grid:
+things built from boxes, pucks and 2:1 ellipses that stand on tiles, seen
+from above at the grid's angle, with a lit top, a mid left face and a dark
+right face. That holds for every new kind of art, not only the ones the rules
+below name: weather, icons, characters, backgrounds, anything.
+
+- **Never flat or side-on.** No straight-on views: no disc suns and round
+  clouds on a colored backdrop, no side-view rain, no icons drawn face-on,
+  no shapes outlined in ink. If a piece would read the same drawn in a
+  paint program without the grid, it's wrong.
+- **Give it ground.** A piece stands on something on the grid (a tile, a
+  block, a table, a patch of street) so its depth reads. What floats (a
+  cloud, the sun) is still a solid on the grid, its shadow or its light on the
+  ground below.
+- **A backdrop is only a backdrop.** The spot's sky of rays is a flat layer
+  *behind* an isometric table and food. A flat layer may sit behind the
+  subject; it is never the subject.
+
+**Plan it on the grid before you draw.** Before writing a generator, write
+down, in its docstring and in your message to the owner, the piece as a
+scene on the grid: what stands on which tiles, the boxes, pucks and ellipses
+each thing is blocked out in, its size in tiles and levels, and which faces
+are lit. If you can't say it that way, you aren't drawing isometric yet.
+
+Look at what's there before you draw, and match it:
 
 ```sh
 cd art && pixpocket render scene:brief-coffee --scale 4 --out /tmp/coffee.png
@@ -95,6 +121,11 @@ The Daily Brief's (from its reviews):
   separate layers on one anchor and one box (176×110), so any food goes on
   any table under any color of rays. A new food, table or light must work
   with all the others.
+- **Weather has no faces either.** The sun, the moon and the clouds are weather, not characters.
+- **Weather is isometric too.** A flat, side-on weather sky (a colored backdrop with a disc sun and round
+  clouds on it) was rejected: the weather strip is drawn on the 2:1 grid like every other piece, clouds
+  blocked out in boxes and pucks with lit tops and shaded right faces, rain landing on ground drawn on the
+  grid (see **The one rule**).
 - **The page plays SMIL, not CSS.** The artifact's asset store strips an
   SVG's `<style>` and `<animate>`, so the SVGs are converted
   (`art/generators/smil.py`) and given to the page as its own files.
@@ -107,7 +138,10 @@ cd art && pixpocket render scene:brief-<food> --scale 4 --out /tmp/look.png
 pixpocket preview object:<name> --marks --scale 6 --out /tmp/marks.png
 ```
 
-Check for stray pixels and jags, a silhouette that reads at 1×, faces shaded
+First ask whether it's isometric: put it beside `brief-coffee` and check it
+stands on the grid the same way, with the same angle, lit tops and dark right
+faces. If it doesn't, start again from the plan; no amount of clean-up fixes
+a flat piece. Then check for stray pixels and jags, a silhouette that reads at 1×, faces shaded
 the right way round, symmetric circles, and every frame inside the same box.
 Then stack the layers in a browser (the page shows them as `<img>`s) and
 watch them move before calling it done. Show the owner, and add their verdict
