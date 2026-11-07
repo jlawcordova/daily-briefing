@@ -1,54 +1,55 @@
-"""The claude.dev section's desk: a developer's corner, busy and alive, as
-isometric pieces on the 2:1 grid, in layers on one anchor and one short box
-that the page stacks over the section's forest band.
+"""The claude.dev section's work desk: one laptop busy with code and the desk
+things round it, gently alive, as isometric pieces on the 2:1 grid, in layers
+on one anchor and one short box that the page stacks over the forest band.
 
 The plan on the grid (the pixel-art-style skill's one rule):
 
 - The box is 176x56, as wide as the spot's stage and short, so it takes little
   of the section's height; (0, 0) is its middle. No table and no backdrop: the
-  layers are transparent over the forest band.
-- One laptop, open, standing on nothing: its base a rounded box 30x18 units
-  and 3 pixels deep (lit grey top with rows of keys and a trackpad, mid left
-  face, dark right face), its screen a panel 30x2 units and 20 pixels tall
-  standing on the base's back edge, the display on its left face (toward the
-  viewer's lower left), where lines of code type in, line after line, a
-  cursor blinking, then clear and start again.
-- A terminal window floating to its right: a thin panel 30x3 units and 22
-  pixels tall, a title bar with three dots, a navy display where a command
-  types, a progress bar fills and a done line comes up.
-- Three code blocks floating between them: rounded cubes 8 units and 8 pixels
-  tall (teal, plum, gold), a glyph on each left face ({, }, >_), bobbing at
-  three phases.
+  layers are transparent over the forest band, the things standing on an
+  unseen desk plane.
+- The laptop, open: its base a rounded box 30x18 units and 3 pixels deep (a
+  lit grey top with rows of keys and a trackpad, mid left face, dark right
+  face), its screen a panel 30x2 units and 20 pixels tall on the base's back
+  edge, the display on its left face (toward the viewer's lower left), where
+  lines of code type in, a cursor blinking, then clear and start again. A
+  sticky note on the screen's top corner flutters.
 - A coffee mug at the far left: a clay cylinder with a handle, steam rising.
-- A server tower at the far right: a dark rounded box 10 units and 30 pixels
-  tall, drive slots racked down its left face, each with a light blinking its
-  own way, vents down its right face.
-- Sparkles twinkle round the screen and the blocks (the spot's glint).
-- The ship moment, a layer the page shows for 1.5 s on a tap: both screens go
-  green with a check mark and a rocket (a rounded prism, a red nose, a flame)
-  launches from behind the laptop up out of the box.
+  A phone lies flat in front of it, a rounded box 8x14 units and 2 pixels
+  deep: now and then it buzzes, its screen lighting with a notification.
+- A desk lamp to the laptop's right: a teal puck of a base, a pole, an arm
+  leaning over the laptop and a rounded head whose bulb glows, breathing,
+  short rays of light falling from it.
+- A potted plant: a brick-red cylinder pot, its leaves 2:1 ellipses in four
+  greens layered up, the top ones swaying a pixel.
+- A stack of three notebooks (teal, red, plum rounded boxes, a gold pen on
+  top) with a rubber duck (no face: a gold rounded body and head, an orange
+  beak) bobbing on them.
+- Sparkles twinkle (the spot's glint).
+- The ship moment, a layer the page shows for 1.5 s on a tap: the screen goes
+  green with a check mark, the lamp flashes bright, the phone lights green,
+  sticky notes fly up like confetti and a rocket launches from behind the
+  laptop up out of the box.
 - Light from the upper left: tops lightest, left faces mid, right faces
-  darkest. Screens glow, so their faces are the display's own colors. No
-  outlines, no faces, no logos.
+  darkest. Screens and the bulb glow in their own colors. No outlines, no
+  faces, no logos.
 
-Layers, bottom to top: back (mug, server tower), laptop, code (the laptop's
-screen), terminal, term (the terminal's screen), blocks, sparkles; and ship
-over them on a tap."""
+Layers, bottom to top: back (the mug and the phone), laptop, code (its screen
+and the sticky note), props (the lamp, the plant, the notebooks and the
+duck), sparkles; and ship over them on a tap."""
 from draw import *  # noqa: F401,F403
-from draw import Pic, cat, despeck, halves, save_scene, sprite, steam
-from kit import box, cylinder, puck, line
+from draw import Pic, cat, halves, save_scene, sprite, steam
+from kit import box, cylinder, ellipse, line, puck
 import draw
 
 BOX = (-88, -30, 176, 56)
 X0, Y0, W, H = BOX
 CAT = cat('Desk')
 
-# ------------------------------------------------------------------ the laptop
-LA, LB, LH = 30, 18, 3               # the base: units along the columns and rows, pixels deep
-LBX, LBY = -34, -6                   # the base top's back corner
-SA, SB, SH = 30, 2, 20               # the screen panel standing on its back edge
-TA_, TB_, TH_ = 30, 3, 22            # the terminal panel
-TBX, TBY = 30, -26                   # its top's back corner
+
+def rbox(p, cx, cy, a, b, h, faces, r=2):
+    """A rounded box whose footprint's middle is the pixel corner (cx, cy), standing h pixels tall."""
+    return box(p, cx - (a - b) // 2, cy - h - (a + b) // 4, a, b, h, *faces, r=r)
 
 
 def face_map(bx, by, a, b, h):
@@ -58,8 +59,15 @@ def face_map(bx, by, a, b, h):
     return {(c[1], c[2]): q for q, c in p.items() if isinstance(c, tuple)}
 
 
+def in_box(p):
+    return Pic({q: c for q, c in p.items() if X0 <= q[0] < X0 + W and Y0 <= q[1] < Y0 + H})
+
+
+# ------------------------------------------------------------------ the laptop
+LA, LB, LH = 30, 18, 3               # the base: units along the columns and rows, pixels deep
+LBX, LBY = -34, -6                   # the base top's back corner
+SA, SB, SH = 30, 2, 20               # the screen panel standing on its back edge
 SCREEN = face_map(LBX, LBY - SH, SA, SB, SH)
-TERM = face_map(TBX, TBY, TA_, TB_, TH_)
 
 
 def keys(u, v):
@@ -86,6 +94,21 @@ CODE = [(0, 10, 'gold-1'), (2, 14, 'grass-1'), (4, 9, 'cream'), (4, 12, 'clay-1'
 GAP = 3                              # rows from one line of code to the next
 TYPE = 3                             # characters (pixels) typed a frame
 HOLDS = 8                            # frames the full screen holds before it clears
+NOTE = [(s, t) for s in range(23, 29) for t in range(1, 7)]   # the sticky note on the screen's top corner
+
+
+def sticky(p, k):
+    """The sticky note: gold, its lower corner curling up and back as it flutters."""
+    curl = (k // 3) % 4 == 1
+    for (s, t) in NOTE:
+        if curl and s >= 27 and t >= 5:
+            continue
+        c = 'gold-2' if t == 1 else 'gold-1'
+        if curl and (s, t) in ((26, 6), (27, 4), (28, 4)):
+            c = 'gold-3'
+        p.put(*SCREEN[(s, t)], c)
+    for s in (24, 25, 26):
+        p.put(*SCREEN[(s, 3)], 'roof-2')                     # a scribble on it
 
 
 def code_frames():
@@ -109,85 +132,15 @@ def code_frames():
             cursor = (4, 3 + GAP * len(CODE))
         if k % 4 < 2 and cursor in SCREEN and cursor[1] < SH - 2:
             p.put(*SCREEN[cursor], 'cream')
+        sticky(p, k)
         frames.append(p)
     return frames
 
 
-# ------------------------------------------------------------------ the terminal
-def term_panel(s, t):
-    if t < 4:
-        if 1 <= t <= 2 and s in (3, 4, 7, 8, 11, 12):
-            return {3: 'roof-1', 4: 'roof-1', 7: 'gold-1', 8: 'gold-1', 11: 'grass-1', 12: 'grass-1'}[s]
-        return 'stone-1'
-    return 'stone-2' if s < 1 or s >= TA_ - 1 or t >= TH_ - 1 else 'glass-4'
-
-
-def terminal():
-    p = Pic()
-    box(p, TBX, TBY, TA_, TB_, TH_, 'stone-1', term_panel, 'stone-3')
-    return p
-
-
-TERM_FRAMES = 26
-
-
-def term_frames():
-    """The terminal's display: a prompt and a command typing, a progress bar filling, a done line."""
-    out = []
-    for k in range(TERM_FRAMES):
-        p = Pic()
-        for s in (3, 4):
-            p.put(*TERM[(s, 7)], 'grass-1')                  # the prompt
-        for s in range(6, 6 + min(16, 3 * k)):
-            p.put(*TERM[(s, 7)], 'cream')                    # the command
-        if k >= 6:
-            for s in range(3, TA_ - 4):
-                p.put(*TERM[(s, 11)], 'stone-4')             # the progress bar's track
-                p.put(*TERM[(s, 12)], 'stone-4')
-            for s in range(3, 3 + min(TA_ - 7, 2 * (k - 6))):
-                p.put(*TERM[(s, 11)], 'grass-1')
-                p.put(*TERM[(s, 12)], 'grass-2')
-        if k >= 18:
-            for s in (3, 4, 5):
-                p.put(*TERM[(s, 16 - (s == 4))], 'grass-1')  # a little check
-            for s in range(8, 18):
-                p.put(*TERM[(s, 16)], 'gold-1')              # done
-        if k >= 18 and k % 4 < 2:
-            p.put(*TERM[(20, 16)], 'cream')
-        out.append(p)
-    return out
-
-
-# ------------------------------------------------------------------ the code blocks
-GLYPHS = {
-    'open': ['..##', '.#..', '##..', '.#..', '..##'],
-    'close': ['##..', '..#.', '..##', '..#.', '##..'],
-    'prompt': ['#...', '.#..', '..#.', '.#..', '#.##'],
-}
-BLOCKS = [('open', ('teal-1', 'teal-2', 'teal-3'), (2, -10), 0), ('close', ('plum-1', 'plum-2', 'plum-3'), (16, -16), 1),
-          ('prompt', ('gold-1', 'gold-2', 'gold-3'), (10, 2), 2)]
-
-
-def block(glyph, faces):
-    """A rounded cube 8 units, 8 pixels tall, its footprint's middle at (0, 0), a cream glyph on its left face."""
-    top_c, left_c, right_c = faces
-    g = GLYPHS[glyph]
-
-    def left(s, t):
-        gs, gt = s - 2, t - 1
-        if 0 <= gt < len(g) and 0 <= gs < len(g[0]) and g[gt][gs] == '#':
-            return 'cream'
-        return left_c
-    p = Pic()
-    box(p, 0, -8 - 4, 8, 8, 8, top_c, left, right_c, r=2)
-    return p
-
-
-BOB = [0, 0, -1, -1, -2, -2, -2, -1, -1, 0, 0, 0]      # pixels up, 200 ms a step
-
-
-# ------------------------------------------------------------------ the mug and the server
-MUG = (-72, 12)
+# ------------------------------------------------------------------ the mug and the phone
+MUG = (-74, 8)
+PHONE = (-58, 19)                    # the middle of the phone's footprint
+PA, PB = 8, 14
 
 
 def mug(k):
@@ -195,7 +148,6 @@ def mug(k):
     p = Pic()
     mx, my = MUG
     cylinder(p, mx, my, 12, 8, 'clay-1', ['clay-1', 'clay-2', 'clay-3'])
-    from kit import ellipse
     ellipse(p, mx, my, 8, 'wood-3')                          # the coffee
     for y in range(my + 2, my + 7):                          # the handle on its right
         p.put(mx + 7, y, 'clay-3')
@@ -208,37 +160,127 @@ def mug(k):
     return p
 
 
-SERVER = (70, 19)                    # the middle of the server tower's footprint
-SV_A, SV_H = 10, 30
+PHONE_FRAMES = 16                    # 200 ms each: a buzz, the screen lit a while, then dark with a blinking light
 
 
-def server(k):
-    """A server tower: a rounded box 10 units and 30 pixels tall, dark grey, its left face racked with
-    drive slots, a light on each blinking its own way; vents down its right face."""
+def phone_top(lit, green=False):
+    def top(u, v):
+        if u < 1.5 or u > PA - 1.5 or v < 1.5 or v > PB - 1.5:
+            return 'stone-4'
+        if green:
+            return 'grass-1' if 5 <= v < 8 else 'grass-2'
+        if lit:
+            return 'cream' if 3 <= v < 5 else 'glass-2'
+        return 'ink'
+    return top
+
+
+def phone(k, green=False):
     p = Pic()
-    lights = ('grass-1', 'gold-1', 'grass-1', 'teal-1', 'roof-1', 'grass-1')
-
-    def left(s, t):
-        row, r = divmod(t - 3, 4)
-        if 0 <= row < len(lights) and r in (0, 1) and 2 <= s < SV_A - 1:
-            if s >= SV_A - 3:                           # the light
-                on = (k * (row + 2) + row * 3) % 5 < 3
-                return lights[row] if on else 'ink'
-            return 'ink'                                # the drive slot
-        return 'stone-3'
-
-    def right(s, t):
-        return 'ink' if 3 <= t < SV_H - 3 and t % 3 == 0 and 2 <= s < SV_A - 2 else 'stone-4'
-    cx, cy = SERVER
-    box(p, cx - 0, cy - SV_H - SV_A // 2, SV_A, SV_A, SV_H, 'stone-2', left, right, r=2)
+    lit = green or 0 <= k < 7
+    dx = (1 if k % 2 else -1) if k < 3 and not green else 0     # it buzzes
+    cx, cy = PHONE
+    rbox(p, cx + dx, cy, PA, PB, 2, (phone_top(lit, green), 'stone-3', 'stone-4'), r=2)
+    if not lit and k % 4 == 0:
+        p.put(cx + dx + 2, cy - 7, 'teal-1')                 # the notification light
     return p
 
 
-SERVER_FRAMES = 10                   # the lights blink through 10 frames of 200 ms
+# ------------------------------------------------------------------ the lamp, the plant, the notebooks, the duck
+LAMP = (12, 16)                      # the middle of the lamp's base
+POLE = 22
+HEAD = (2, -3)                     # the middle of the lamp head's footprint
+HA, HH = 8, 5
+LAMP_TEAL = ('teal-1', 'teal-2', 'teal-3')
+GLOW = ['gold-1', 'gold-1', 'cream', 'cream', 'cream', 'gold-1', 'gold-1', 'gold-2']   # the bulb breathing
+
+
+def head_face():
+    return face_map(HEAD[0] - 0, HEAD[1] - HH - HA // 2, HA, HA, HH)
+
+
+def lamp(k, flash=False):
+    p = Pic()
+    cx, cy = LAMP
+    puck(p, cx, cy, 14, 2, 'teal-1', ['teal-2', 'teal-3'])
+    rbox(p, cx, cy - 2, 2, 2, POLE, LAMP_TEAL, r=0)
+    top = cy - 2 - POLE                                      # the arm leans from the pole's top over the laptop
+    hx, hy = HEAD
+    line(p, cx, top, hx + 3, hy - HH - 3, 'teal-2')         # the arm, two pixels thick
+    line(p, cx, top + 1, hx + 3, hy - HH - 2, 'teal-3')
+    rbox(p, hx, hy, HA, HA, HH, LAMP_TEAL, r=3)
+    glow = 'cream' if flash else GLOW[k % len(GLOW)]
+    face = head_face()
+    for (s, t), q in face.items():                           # the bulb: the head's lit underside, glowing
+        if 1 <= s < HA - 1 and t >= HH - 2:
+            p.put(*q, glow)
+    ellipse(p, hx - 2, hy - 1, 6, glow)                     # the bulb, at the shade's mouth
+    if flash or GLOW[k % len(GLOW)] == 'cream':
+        bx, by = face[(HA // 2, HH - 1)]
+        for i in range(1, 4 if not flash else 6):            # rays falling onto the keys
+            for ox in (-4, 0, 4):
+                p.put(bx + ox - i // 2, by + 1 + i, 'gold-1')
+    return p
+
+
+PLANT = (34, 14)
+LEAVES = [(-5, -3, 10, 'grass-3', 0), (5, -4, 10, 'grass-4', 0), (-3, -8, 10, 'grass-2', 1),
+          (4, -9, 8, 'grass-3', 1), (-1, -13, 8, 'grass-1', 2), (-6, -12, 6, 'grass-2', 2), (3, -16, 6, 'grass-1', 3)]
+SWAY = [0, 0, 1, 1, 1, 0, 0, -1, -1, -1]                 # pixels the top leaves lean, 200 ms a step
+
+
+def plant(k):
+    p = Pic()
+    cx, cy = PLANT
+    cylinder(p, cx, cy, 14, 7, 'brick-1', ['brick-1', 'brick-2', 'brick-3'])
+    ellipse(p, cx, cy, 10, 'soil-3')
+    for dx, dy, w, c, tier in LEAVES:
+        sway = SWAY[k] * (1 if tier >= 2 else 0)
+        ellipse(p, cx + dx + sway, cy + dy, w, c)
+    return p
+
+
+BOOKS = (62, 18)
+BOOK_STACK = [(0, 0, 18, 12, 3, ('teal-1', 'teal-2', 'teal-3')), (1, -3, 16, 11, 3, ('roof-1', 'roof-2', 'roof-3')),
+              (-1, -6, 17, 12, 3, ('plum-1', 'plum-2', 'plum-3'))]
+
+
+def books():
+    """Three notebooks stacked a little askew, cream page edges down their sides, a gold pen on top."""
+    p = Pic()
+    bx, by = BOOKS
+    for dx, dy, a, b, h, (t, left, right) in BOOK_STACK:
+        rbox(p, bx + dx, by + dy, a, b, h, (t, lambda s, tt, l=left: 'cream' if tt == 1 and s > 2 else l, right), r=2)
+    for i in range(10):                                      # the pen, along a 2:1 line on the top
+        x, y = bx + 2 + i, by - 14 + i // 2
+        p.put(x, y, 'gold-1')
+        p.put(x, y + 1, 'gold-3')
+    p.put(bx + 12, by - 9, 'ink'); p.put(bx + 13, by - 9, 'ink')
+    return p
+
+
+DUCK_BOB = [0, 0, 0, -1, -1, 0, 0, 0, 0, 0]
+
+
+def duck(k):
+    """A rubber duck, no face: a gold rounded body, a rounded head at its front left, an orange beak."""
+    p = Pic()
+    bx, by = BOOKS
+    d = DUCK_BOB[k]
+    gold = ('gold-1', 'gold-2', 'gold-3')
+    rbox(p, bx + 1, by - 9 + d, 10, 8, 5, gold, r=3)              # the body, its tail to the back
+    rbox(p, bx - 3, by - 12 + d, 6, 6, 5, gold, r=2)              # the head, at the front left
+    rbox(p, bx - 7, by - 13 + d, 4, 3, 2, ('clay-1', 'clay-2', 'clay-3'), r=1)   # the beak, toward the viewer
+    return p
+
+
+PROPS_FRAMES = 10                    # the lamp, the plant and the duck each loop in 2 s
 
 
 # ------------------------------------------------------------------ the ship moment
 SHIP = 15
+NOTES = [(-30, -4, 'gold-1', -1), (-10, -8, 'roof-1', 1), (6, -2, 'teal-1', 2), (-22, 0, 'plum-1', -2),
+         (20, -6, 'gold-1', 1), (-40, -2, 'grass-1', -1), (0, 2, 'cream', 0), (-16, -6, 'roof-1', 2)]
 
 
 def check(face, w, h, bg):
@@ -276,16 +318,22 @@ def rocket(p, cx, cy, k):
 
 def ship_frames():
     out = []
-    lap = check(SCREEN, SA, SH, 'grass-2')
-    trm = Pic({q: c for q, c in check(TERM, TA_, TH_, 'grass-2').items()})
+    screen = check(SCREEN, SA, SH, 'grass-2')
     for k in range(SHIP):
-        p = lap.over(trm)
-        y = 2 - k * k // 2 * 1 - 3 * k                       # it climbs faster and faster
+        lit = Pic({q: c for q, c in lamp(0, flash=True).items() if c in ('cream', 'gold-1')})
+        green = Pic({q: c for q, c in phone(0, green=True).items() if c.startswith('grass')})
+        p = screen.over(lit if k % 4 < 2 else Pic()).over(green)
+        for x, y, c, vx in NOTES:                            # sticky notes flying up and tumbling down
+            nx, ny = x + vx * k, y - 5 * k + k * k // 3
+            for q in ((nx, ny), (nx + 1, ny), (nx, ny + 1), (nx + 1, ny + 1)) if k % 2 else \
+                    ((nx, ny), (nx + 1, ny), (nx + 2, ny), (nx + 1, ny + 1)):
+                p.put(*q, c)
+        y = 2 - k * k // 2 - 3 * k                           # the rocket climbs faster and faster
         if y > Y0 - 30:
             rocket(p, -12, y, k)
         for i in range(min(k, 5)):                           # puffs where it lifted off
             p.put(-16 - 3 * i, 4 + i % 2, 'stone-1'); p.put(-8 + 3 * i, 4 + (i + 1) % 2, 'stone-1')
-        out.append(Pic({q: c for q, c in p.items() if X0 <= q[0] < X0 + W and Y0 <= q[1] < Y0 + H}))
+        out.append(in_box(p))
     return out
 
 
@@ -310,69 +358,66 @@ def item(name, at=(0, 0), state=None, order=0):
     return i
 
 
-SPARKLES = [(-38, -24, 0), (-6, -14, 1), (26, -22, 2), (-56, -2, 1), (46, 8, 0)]
+SPARKLES = [(-38, -24, 0), (-56, -6, 1), (26, -24, 2), (50, -12, 1), (80, 2, 0)]
 
 
 def build_desk():
     save('dev-laptop', sprite(laptop(), CAT, [
         'The laptop, open: a rounded base 30x18 units (lit grey keys and a trackpad on top) with its screen panel '
         'standing on the back edge, the display (dark, in a grey bezel) on its left face. No logo.',
-        'Place it by pixel (px) at the strip\'s anchor; its screen\'s code is `dev-code`, over it.']))
+        'Place it by pixel (px) at the strip\'s anchor; its screen is dev-code, over it.']))
     code = code_frames()
     save('dev-code', one_state(code, [
         'What the laptop\'s screen shows: lines of code in gold, green, cream, orange and teal typing in, a cream '
-        'cursor blinking at the end, then a pause and a clear.',
+        'cursor blinking at the end, then a pause and a clear; a gold sticky note on its top corner fluttering.',
         'Place it by pixel (px) at the strip\'s anchor, over dev-laptop.',
         f'States: type ({len(code)} frames of 100 ms, looping).'], 'type', 100))
-    save('dev-terminal', sprite(terminal(), CAT, [
-        'A terminal window floating on the grid: a thin panel 30x3 units, 22 pixels tall, a light title bar with '
-        'three dots (red, gold, green), a navy display.',
-        'Place it by pixel (px) at the strip\'s anchor.']))
-    term = term_frames()
-    save('dev-term', one_state(term, [
-        'The terminal\'s display: a green prompt and a cream command typing, a progress bar filling green, a '
-        'check and a gold done line, a cursor blinking.',
-        'Place it by pixel (px) at the strip\'s anchor, over dev-terminal.',
-        f'States: run ({len(term)} frames of 100 ms, looping).'], 'run', 100))
-    for glyph, faces, at, ph in BLOCKS:
-        base = block(glyph, faces)
-        frames = [base.moved(0, d) for d in sorted(set(BOB), reverse=True)]
-        index = {d: i for i, d in enumerate(sorted(set(BOB), reverse=True))}
-        seq = [index[d] for d in BOB]
-        seq = seq[ph * 4:] + seq[:ph * 4]
-        save(f'dev-block-{glyph}', one_state(frames, [
-            f'A code block: a {faces[0].split("-")[0]} rounded cube 8 units and 8 pixels tall, a cream glyph '
-            f'({glyph}) on its left face, bobbing.',
-            'Place it by pixel (px) at the middle of its footprint.',
-            'States: bob (12 frames of 200 ms, looping).'], 'bob', 200, seq))
     save('dev-mug', one_state([mug(k) for k in range(6)], [
         'A clay coffee mug (a cylinder with a handle on its right, coffee inside) with steam rising.',
-        'Place it by pixel (px) at the strip\'s anchor, under the laptop.',
-        'States: run (6 frames of 200 ms, looping).'], 'run', 200))
-    save('dev-server', one_state([server(k) for k in range(SERVER_FRAMES)], [
-        'A server tower: a dark grey rounded box 10 units and 30 pixels tall, drive slots racked down its left '
-        'face with a light on each blinking its own way (green, gold, teal, red), vents down its right face.',
         'Place it by pixel (px) at the strip\'s anchor.',
-        f'States: run ({SERVER_FRAMES} frames of 200 ms, looping).'], 'run', 200))
+        'States: run (6 frames of 200 ms, looping).'], 'run', 200))
+    save('dev-phone', one_state([phone(k) for k in range(PHONE_FRAMES)], [
+        'A phone lying flat: a dark rounded box 8x14 units, 2 pixels deep. It buzzes and its screen lights with a '
+        'notification, then it goes dark, a teal light blinking.',
+        'Place it by pixel (px) at the strip\'s anchor.',
+        f'States: run ({PHONE_FRAMES} frames of 200 ms, looping).'], 'run', 200))
+    save('dev-lamp', one_state([lamp(k) for k in range(PROPS_FRAMES)], [
+        'A teal desk lamp: a puck of a base, a pole, an arm leaning over the laptop and a rounded head whose bulb '
+        'glows, breathing gold to cream, rays of light falling from it at its brightest.',
+        'Place it by pixel (px) at the strip\'s anchor.',
+        f'States: run ({PROPS_FRAMES} frames of 200 ms, looping).'], 'run', 200))
+    save('dev-plant', one_state([plant(k) for k in range(PROPS_FRAMES)], [
+        'A potted plant: a brick-red pot, its leaves 2:1 ellipses in four greens layered up, the top ones swaying.',
+        'Place it by pixel (px) at the strip\'s anchor.',
+        f'States: run ({PROPS_FRAMES} frames of 200 ms, looping).'], 'run', 200))
+    save('dev-books', sprite(books(), CAT, [
+        'Three notebooks stacked a little askew (teal, red, plum rounded boxes, cream page edges), a gold pen on top.',
+        'Place it by pixel (px) at the strip\'s anchor.']))
+    save('dev-duck', one_state([duck(k) for k in range(PROPS_FRAMES)], [
+        'A rubber duck, no face: a gold rounded body, a rounded head at its front left, an orange beak; it bobs on the '
+        'notebooks.',
+        'Place it by pixel (px) at the strip\'s anchor, over dev-books.',
+        f'States: run ({PROPS_FRAMES} frames of 200 ms, looping).'], 'run', 200))
     ship = ship_frames()
-    save('dev-ship', one_state(ship, [
-        'The ship moment: both screens gone green with a cream check mark, and a rocket (a cream rounded prism, '
-        'a red nose and fins, a flickering flame) launching from behind the laptop up out of the strip.',
-        'The page shows it for 1.5 s on a tap, over everything.',
-        f'States: ship ({SHIP} frames of 100 ms, looping; the page takes it away after one).'], 'ship', 100))
+    left, right = halves(ship)
+    for side, fs in (('left', left), ('right', right)):
+        save(f'dev-ship-{side}', one_state(fs, [
+            f'The ship moment ({side} half): the screen gone green with a cream check mark, the lamp flashing, the '
+            'phone lit green, sticky notes flying up, a rocket launching from behind the laptop up out of the strip.',
+            'The page shows it for 1.5 s on a tap, over everything.',
+            f'States: ship ({SHIP} frames of 100 ms, looping; the page takes it away after one).'], 'ship', 100))
 
     layer = lambda name, notes, items: save_scene(name, scene(notes, items, name + '.svg'))
-    layer('dev-back', ['The desk\'s back layer: the mug and the server tower.'],
-          [item('dev-mug', state='run'), item('dev-server', state='run', order=1)])
+    layer('dev-back', ['The desk\'s back layer: the mug and the phone.'],
+          [item('dev-mug', state='run'), item('dev-phone', state='run', order=1)])
     layer('dev-laptop', ['The laptop.'], [item('dev-laptop')])
-    layer('dev-code', ['The laptop\'s screen, typing.'], [item('dev-code', state='type')])
-    layer('dev-terminal', ['The terminal window.'], [item('dev-terminal')])
-    layer('dev-term', ['The terminal\'s screen, running.'], [item('dev-term', state='run')])
-    layer('dev-blocks', ['The three code blocks, bobbing.'],
-          [item(f'dev-block-{g}', at, 'bob', i) for i, (g, _, at, _) in
-           sorted(enumerate(BLOCKS), key=lambda e: (e[1][2][1], e[1][2][0]))])
-    layer('dev-sparkles', ['Sparkles round the screen and the blocks.'],
+    layer('dev-code', ['The laptop\'s screen, typing, and its sticky note.'], [item('dev-code', state='type')])
+    layer('dev-props', ['The lamp, the plant, the notebooks and the duck.'],
+          [item('dev-lamp', state='run'), item('dev-plant', state='run', order=1), item('dev-books', order=2),
+           item('dev-duck', state='run', order=3)])
+    layer('dev-sparkles', ['Sparkles round the desk.'],
           [item('brief-glint', (x, y), f'twinkle-{ph}', i) for i, (x, y, ph) in
            sorted(enumerate(SPARKLES), key=lambda e: (e[1][1], e[1][0]))])
-    layer('dev-ship', ['The ship moment, shown on a tap.'], [item('dev-ship', state='ship')])
-    return ['dev-back', 'dev-laptop', 'dev-code', 'dev-terminal', 'dev-term', 'dev-blocks', 'dev-sparkles']
+    layer('dev-ship', ['The ship moment, shown on a tap.'],
+          [item('dev-ship-left', state='ship'), item('dev-ship-right', state='ship', order=1)])
+    return ['dev-back', 'dev-laptop', 'dev-code', 'dev-props', 'dev-sparkles']

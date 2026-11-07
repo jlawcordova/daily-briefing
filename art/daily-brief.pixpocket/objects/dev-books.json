@@ -1,0 +1,55 @@
+{
+  "notes": [
+    "Three notebooks stacked a little askew (teal, red, plum rounded boxes, cream page edges), a gold pen on top.",
+    "Place it by pixel (px) at the strip's anchor."
+  ],
+  "category": [
+    "Daily Brief",
+    "Desk"
+  ],
+  "kind": "sprite",
+  "anchor": [-48, -3],
+  "keys": {
+    "a": "plum-1",
+    "b": "gold-1",
+    "c": "gold-3",
+    "d": "plum-2",
+    "e": "ink",
+    "f": "cream",
+    "g": "plum-3",
+    "h": "teal-1",
+    "i": "roof-2",
+    "j": "roof-1",
+    "k": "teal-2",
+    "l": "roof-3",
+    "m": "teal-3"
+  },
+  "layers": [
+    {
+      "map": [
+        "........aaaaaa..............",
+        "......aaaaaaaaaabb..........",
+        "....aaaaaaaaaaaaccbb........",
+        "..aaaaaaaaaaaaaaaaccbb......",
+        "aaaaaaaaaaaaaaaaaaaaccbb....",
+        "aaaaaaaaaaaaaaaaaaaaaaccbb..",
+        "ddaaaaaaaaaaaaaaaaaaaaaaccee",
+        "ddddaaaaaaaaaaaaaaaaaaaaaaa.",
+        "ddffddaaaaaaaaaaaaaaaaaaaag.",
+        "..ddffddaaaaaaaaaaaaaaaaggg.",
+        "hhhiddffddaaaaaaaaaaaagggggj",
+        "hhhiifddffddaaaaaaaaggggggjj",
+        "kkhhiiffddffddaaaaggggggjjll",
+        "kkkkhhiiffddffddggggggjjllll",
+        "kkffkkhhiiffddffggggjjllllll",
+        "..kkffkkhhiiffddggjjllllllmm",
+        "....kkffkkhhiiffiillllllmmmm",
+        "......kkffkkhhiiffllllmmmmmm",
+        "........kkffkkhhiillmmmmmm..",
+        "..........kkffkkkmmmmmmm....",
+        "............kkfffmmmmm......",
+        "..............kkkmmm........"
+      ]
+    }
+  ]
+}

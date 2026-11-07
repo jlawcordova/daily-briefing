@@ -1,14 +1,14 @@
 {
   "notes": [
-    "Sparkles round the screen and the blocks."
+    "Sparkles round the desk."
   ],
   "output": "dev-sparkles.svg",
   "viewBox": [-88, -30, 176, 56],
   "items": [
     { "object": "brief-glint", "depth": "back", "state": "twinkle-0", "at": { "px": [-38, -24] }, "order": 0 },
-    { "object": "brief-glint", "depth": "back", "state": "twinkle-2", "at": { "px": [26, -22] }, "order": 2 },
-    { "object": "brief-glint", "depth": "back", "state": "twinkle-1", "at": { "px": [-6, -14] }, "order": 1 },
-    { "object": "brief-glint", "depth": "back", "state": "twinkle-1", "at": { "px": [-56, -2] }, "order": 3 },
-    { "object": "brief-glint", "depth": "back", "state": "twinkle-0", "at": { "px": [46, 8] }, "order": 4 }
+    { "object": "brief-glint", "depth": "back", "state": "twinkle-2", "at": { "px": [26, -24] }, "order": 2 },
+    { "object": "brief-glint", "depth": "back", "state": "twinkle-1", "at": { "px": [50, -12] }, "order": 3 },
+    { "object": "brief-glint", "depth": "back", "state": "twinkle-1", "at": { "px": [-56, -6] }, "order": 1 },
+    { "object": "brief-glint", "depth": "back", "state": "twinkle-0", "at": { "px": [80, 2] }, "order": 4 }
   ]
 }

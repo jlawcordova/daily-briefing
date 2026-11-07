@@ -5,6 +5,7 @@
   "output": "dev-ship.svg",
   "viewBox": [-88, -30, 176, 56],
   "items": [
-    { "object": "dev-ship", "depth": "back", "state": "ship", "at": { "px": [0, 0] }, "order": 0 }
+    { "object": "dev-ship-left", "depth": "back", "state": "ship", "at": { "px": [0, 0] }, "order": 0 },
+    { "object": "dev-ship-right", "depth": "back", "state": "ship", "at": { "px": [0, 0] }, "order": 1 }
   ]
 }

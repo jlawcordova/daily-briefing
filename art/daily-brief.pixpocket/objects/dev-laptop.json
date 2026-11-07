@@ -1,7 +1,7 @@
 {
   "notes": [
     "The laptop, open: a rounded base 30x18 units (lit grey keys and a trackpad on top) with its screen panel standing on the back edge, the display (dark, in a grey bezel) on its left face. No logo.",
-    "Place it by pixel (px) at the strip's anchor; its screen's code is `dev-code`, over it."
+    "Place it by pixel (px) at the strip's anchor; its screen is dev-code, over it."
   ],
   "category": [
     "Daily Brief",

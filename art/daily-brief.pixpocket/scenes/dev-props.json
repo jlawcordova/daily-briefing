@@ -1,0 +1,13 @@
+{
+  "notes": [
+    "The lamp, the plant, the notebooks and the duck."
+  ],
+  "output": "dev-props.svg",
+  "viewBox": [-88, -30, 176, 56],
+  "items": [
+    { "object": "dev-lamp", "depth": "back", "state": "run", "at": { "px": [0, 0] }, "order": 0 },
+    { "object": "dev-plant", "depth": "back", "state": "run", "at": { "px": [0, 0] }, "order": 1 },
+    { "object": "dev-books", "depth": "back", "at": { "px": [0, 0] }, "order": 2 },
+    { "object": "dev-duck", "depth": "back", "state": "run", "at": { "px": [0, 0] }, "order": 3 }
+  ]
+}

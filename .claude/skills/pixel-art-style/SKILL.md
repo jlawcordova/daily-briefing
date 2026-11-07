@@ -138,10 +138,10 @@ The Daily Brief's (from its reviews):
 - **Birthdays are festive.** The Birthdays party is the brightest, busiest piece: saturated ramps, a
   cake (no face) with flickering candles, gifts that hop, balloons that bob, pennants chasing, sparkles and
   confetti, all on the grid and transparent over the gold band. Here more moves, on purpose.
-- **The claude.dev corner is short and alive.** No table: one laptop with a terminal window, code blocks,
-  a mug and a server tower, transparent over the forest band in a short strip (176×56) so it takes little of
-  the section's height. Its screens type and run builds; a tap ships (both screens go green, a rocket
-  launches). No logos.
+- **The claude.dev corner is a work desk.** Desk things round one laptop (its code typing): a coffee mug,
+  a desk lamp, a plant, notebooks, a phone, a rubber duck (no face). Not servers, terminal windows or cloud
+  props. No table: transparent over the forest band in a short strip (176×56) so it takes little of the
+  section's height. A tap ships (the screen goes green, a rocket launches). No logos.
 - **The page plays SMIL, not CSS.** The artifact's asset store strips an
   SVG's `<style>` and `<animate>`, so the SVGs are converted
   (`art/generators/smil.py`) and given to the page as its own files.

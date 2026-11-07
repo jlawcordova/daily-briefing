@@ -1,11 +1,11 @@
 {
   "notes": [
-    "The desk's back layer: the mug and the server tower."
+    "The desk's back layer: the mug and the phone."
   ],
   "output": "dev-back.svg",
   "viewBox": [-88, -30, 176, 56],
   "items": [
     { "object": "dev-mug", "depth": "back", "state": "run", "at": { "px": [0, 0] }, "order": 0 },
-    { "object": "dev-server", "depth": "back", "state": "run", "at": { "px": [0, 0] }, "order": 1 }
+    { "object": "dev-phone", "depth": "back", "state": "run", "at": { "px": [0, 0] }, "order": 1 }
   ]
 }

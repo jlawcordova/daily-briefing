@@ -1,7 +1,7 @@
 {
   "notes": [
     "A clay coffee mug (a cylinder with a handle on its right, coffee inside) with steam rising.",
-    "Place it by pixel (px) at the strip's anchor, under the laptop.",
+    "Place it by pixel (px) at the strip's anchor.",
     "States: run (6 frames of 200 ms, looping)."
   ],
   "category": [
@@ -9,7 +9,7 @@
     "Desk"
   ],
   "kind": "sprite",
-  "anchor": [78, 2],
+  "anchor": [80, 6],
   "keys": {
     "a": "stone-1",
     "b": "clay-1",
