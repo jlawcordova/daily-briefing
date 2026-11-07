@@ -1,0 +1,85 @@
+{
+  "notes": [
+    "A code block: a plum rounded cube 8 units and 8 pixels tall, a cream glyph (close) on its left face, bobbing.",
+    "Place it by pixel (px) at the middle of its footprint.",
+    "States: bob (12 frames of 200 ms, looping)."
+  ],
+  "category": [
+    "Daily Brief",
+    "Desk"
+  ],
+  "kind": "sprite",
+  "anchor": [7, 13],
+  "keys": {
+    "a": "plum-1",
+    "b": "plum-2",
+    "c": "plum-3",
+    "d": "cream"
+  },
+  "layers": [
+    {
+      "loop": "pose",
+      "prefix": "p",
+      "frames": [
+        [
+          "..............",
+          "..............",
+          "....aaaaaa....",
+          "..aaaaaaaaaa..",
+          "aaaaaaaaaaaaaa",
+          "aaaaaaaaaaaaaa",
+          "bbaaaaaaaaaacc",
+          "bdbbaaaaaacccc",
+          "bbdbbbbccccccc",
+          "bbbdbbbccccccc",
+          "bbbdbbbccccccc",
+          "bdbddbbccccccc",
+          "bbdbbbbccccccc",
+          "bbbbbbbccccccc",
+          "..bbbbbccccc..",
+          "....bbbccc...."
+        ],
+        [
+          "..............",
+          "....aaaaaa....",
+          "..aaaaaaaaaa..",
+          "aaaaaaaaaaaaaa",
+          "aaaaaaaaaaaaaa",
+          "bbaaaaaaaaaacc",
+          "bdbbaaaaaacccc",
+          "bbdbbbbccccccc",
+          "bbbdbbbccccccc",
+          "bbbdbbbccccccc",
+          "bdbddbbccccccc",
+          "bbdbbbbccccccc",
+          "bbbbbbbccccccc",
+          "..bbbbbccccc..",
+          "....bbbccc....",
+          ".............."
+        ],
+        [
+          "....aaaaaa....",
+          "..aaaaaaaaaa..",
+          "aaaaaaaaaaaaaa",
+          "aaaaaaaaaaaaaa",
+          "bbaaaaaaaaaacc",
+          "bdbbaaaaaacccc",
+          "bbdbbbbccccccc",
+          "bbbdbbbccccccc",
+          "bbbdbbbccccccc",
+          "bdbddbbccccccc",
+          "bbdbbbbccccccc",
+          "bbbbbbbccccccc",
+          "..bbbbbccccc..",
+          "....bbbccc....",
+          "..............",
+          ".............."
+        ]
+      ]
+    }
+  ],
+  "start": "bob",
+  "states": {
+    "bob": { "frames": [2, 2, 2, 1, 1, 0, 0, 0, 0, 0, 1, 1], "ms": 200 }
+  }
+}

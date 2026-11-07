@@ -1,0 +1,10 @@
+{
+  "notes": [
+    "The ship moment, shown on a tap."
+  ],
+  "output": "dev-ship.svg",
+  "viewBox": [-88, -30, 176, 56],
+  "items": [
+    { "object": "dev-ship", "depth": "back", "state": "ship", "at": { "px": [0, 0] }, "order": 0 }
+  ]
+}

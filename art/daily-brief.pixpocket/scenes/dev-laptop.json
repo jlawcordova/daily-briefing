@@ -1,0 +1,10 @@
+{
+  "notes": [
+    "The laptop."
+  ],
+  "output": "dev-laptop.svg",
+  "viewBox": [-88, -30, 176, 56],
+  "items": [
+    { "object": "dev-laptop", "depth": "back", "at": { "px": [0, 0] }, "order": 0 }
+  ]
+}

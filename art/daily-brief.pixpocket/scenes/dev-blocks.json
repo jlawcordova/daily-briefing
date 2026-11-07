@@ -1,0 +1,12 @@
+{
+  "notes": [
+    "The three code blocks, bobbing."
+  ],
+  "output": "dev-blocks.svg",
+  "viewBox": [-88, -30, 176, 56],
+  "items": [
+    { "object": "dev-block-close", "depth": "back", "state": "bob", "at": { "px": [16, -16] }, "order": 1 },
+    { "object": "dev-block-open", "depth": "back", "state": "bob", "at": { "px": [2, -10] }, "order": 0 },
+    { "object": "dev-block-prompt", "depth": "back", "state": "bob", "at": { "px": [10, 2] }, "order": 2 }
+  ]
+}

@@ -16,6 +16,10 @@ a stack of `wx-<layer>` scenes on one 176×64 box (stars, sun or moon, rain, lig
 For the Birthdays section (`party.py`): a party on the 2:1 grid in `bday-<layer>` scenes on one 176×100
 box (table, bunting, cake and gifts, balloons, sparkles, confetti), and `bday-icon-<name>` for the cards.
 
+For the claude.dev section (`desk.py`): a developer's corner on the 2:1 grid in `dev-<layer>` scenes on one
+176×56 box (a laptop typing code, a terminal, code blocks, a mug, a git graph, sparkles, and a ship moment
+shown on a tap).
+
 The SVGs: `pixpocket publish --dir art/build/svg`, then `smil.py` turns their
 CSS frame loops into SMIL in art/build/smil, the files the page is given (an
 artifact's asset store strips an SVG's <style>)."""
@@ -26,7 +30,7 @@ sys.path.insert(0, HERE)
 from draw import BUILD, OUT, SCENES_OUT, DOC, LIBRARY, save_scene  # noqa: E402
 from canon import serialize  # noqa: E402
 from program import run  # noqa: E402
-import stage, foods, tables, smil, weather, party  # noqa: E402
+import stage, foods, tables, smil, weather, party, desk  # noqa: E402
 
 # Where the glints twinkle on each food, in pixels from the table's anchor.
 GLINTS = {
@@ -107,7 +111,8 @@ def install():
             f.write(serialize(o))
     new = {os.path.basename(s): s for s in glob.glob(os.path.join(SCENES_OUT, '*.json'))}
     for f in glob.glob(os.path.join(DOC, 'scenes', 'brief-*.json')) + glob.glob(os.path.join(DOC, 'scenes', 'wx-*.json')) + \
-            glob.glob(os.path.join(DOC, 'scenes', 'bday-*.json')):
+            glob.glob(os.path.join(DOC, 'scenes', 'bday-*.json')) + \
+            glob.glob(os.path.join(DOC, 'scenes', 'dev-*.json')):
         if os.path.basename(f) not in new:
             os.remove(f)
     for n, f in sorted(new.items()):
@@ -124,6 +129,7 @@ def build():
     scenes(food_names, table_names)
     weather.build_weather()
     party.build_party()
+    desk.build_desk()
     return install()
 
 

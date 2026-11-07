@@ -1,0 +1,71 @@
+{
+  "notes": [
+    "The laptop, open: a rounded base 30x18 units (lit grey keys and a trackpad on top) with its screen panel standing on the back edge, the display (dark, in a grey bezel) on its left face. No logo.",
+    "Place it by pixel (px) at the strip's anchor; its screen's code is `dev-code`, over it."
+  ],
+  "category": [
+    "Daily Brief",
+    "Desk"
+  ],
+  "kind": "sprite",
+  "anchor": [50, 26],
+  "keys": {
+    "a": "stone-2",
+    "b": "stone-4",
+    "c": "ink",
+    "d": "stone-3",
+    "e": "stone-1"
+  },
+  "layers": [
+    {
+      "map": [
+        "...............aa............................",
+        "...............aaaa..........................",
+        "...............bbaaaa........................",
+        "...............bbbbaaaa......................",
+        "...............bcbbbbaaaa....................",
+        "...............bcccbbbbaaaa..................",
+        "...............bcccccbbbbaaaa................",
+        "...............bcccccccbbbbaaaa..............",
+        "...............bcccccccccbbbbaaaa............",
+        "...............bcccccccccccbbbbaaaa..........",
+        "...............bcccccccccccccbbbbaaaa........",
+        "...............bcccccccccccccccbbbbaaaa......",
+        "...............bcccccccccccccccccbbbbaaaa....",
+        "...............bcccccccccccccccccccbbbbaaaa..",
+        "...............bcccccccccccccccccccccbbbbaaaa",
+        "...............bcccccccccccccccccccccccbbbbaa",
+        "...............bcccccccccccccccccccccccccbbbd",
+        "...............bccccccccccccccccccccccccccbbd",
+        "...............bccccccccccccccccccccccccccbbd",
+        "...............bccccccccccccccccccccccccccbbd",
+        "...............bbcccccccccccccccccccccccccbbd",
+        ".............eebbbbcccccccccccccccccccccccbbd",
+        "...........eeeeeebbbbcccccccccccccccccccccbbd",
+        ".........eeeeeeeeeebbbbcccccccccccccccccccbbd",
+        ".......eeeeeeeeaaeeeebbbbcccccccccccccccccbbd",
+        ".....eeeeeeeeaaeeeeeeeebbbbcccccccccccccccbbd",
+        "...eeeeeeeeaaeeeeeeaaeeeebbbbcccccccccccccbbd",
+        ".eeeeeeeeaaeeeeeeaaeeaaeeeebbbbcccccccccccbbd",
+        "eeeeeeeeeeeeeeeaaeeaaeeeeeeeebbbbcccccccccbbd",
+        "eeeeeeeeeeeeeaaeeaaeeeeeeaaeeeebbbbcccccccbbd",
+        "aeeeeeeeeeeeeeeaaeeeeeeaaeeaaeeeebbbbcccccbbd",
+        "aaaeeeeeeeeeeaaeeeeeeaaeeaaeeeeeeeebbbbcccbbd",
+        "aaaaaeeeeeeaaaaaaeeaaeeaaeeeeeeaaeeeebbbbcbbd",
+        ".aaaaaaeeeeaaaaaaaaeeaaeeeeeeaaeeaaeeeebbbbbd",
+        "...aaaaaaeeeeaaaaaaaaeeeeeeaaeeaaeeeeeeeebbbd",
+        ".....aaaaaaeeeeaaaaaaaaeeaaeeaaeeeeeeaaeeeebd",
+        ".......aaaaaaeeeeaaaaaaeeeeaaeeeeeeaaeeeeeed.",
+        ".........aaaaaaeeeeaaeeeeeeeeeeeeaaeeeeeeddd.",
+        "...........aaaaaaeeeeeeeeeeeeeeaaeeeeeeddddd.",
+        ".............aaaaaaeeeeeeeeeeeeeeeeeedddddd..",
+        "...............aaaaaaeeeeeeeeeeeeeedddddd....",
+        ".................aaaaaaeeeeeeeeeedddddd......",
+        "...................aaaaaaeeeeeedddddd........",
+        ".....................aaaaaaaddddddd..........",
+        ".......................aaaaaddddd............",
+        ".........................aaaddd.............."
+      ]
+    }
+  ]
+}

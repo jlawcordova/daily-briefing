@@ -1,0 +1,10 @@
+{
+  "notes": [
+    "The laptop's screen, typing."
+  ],
+  "output": "dev-code.svg",
+  "viewBox": [-88, -30, 176, 56],
+  "items": [
+    { "object": "dev-code", "depth": "back", "state": "type", "at": { "px": [0, 0] }, "order": 0 }
+  ]
+}
