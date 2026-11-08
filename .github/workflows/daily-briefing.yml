@@ -2,7 +2,10 @@ name: Daily Briefing
 
 on:
   schedule:
-    - cron: "0 22 * * *" # 06:00 Asia/Manila
+    # 01:23 Asia/Manila. GitHub starts scheduled runs 3-4h late (seen: 01:00-01:57 UTC for a 22:00 UTC
+    # cron), so this lands around 04:30-05:30 Manila, before 07:00. The briefing is dated in the
+    # configured timezone, so anything after 00:00 Manila still gets that day's date.
+    - cron: "23 17 * * *"
   workflow_dispatch:
     inputs:
       dry_run:
@@ -33,6 +36,7 @@ jobs:
     env:
       BRIEFING_GIST_ID: ${{ secrets.BRIEFING_GIST_ID }}
       BRIEFING_GIST_TOKEN: ${{ secrets.BRIEFING_GIST_TOKEN }}
+      PYTHONFAULTHANDLER: "1" # print a Python traceback if a native extension segfaults
     steps:
       - uses: actions/checkout@v4
 

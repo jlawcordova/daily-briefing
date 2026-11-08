@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import logging
 import math
+import threading
 from concurrent.futures import ThreadPoolExecutor
 
 import httpx
@@ -17,6 +18,11 @@ log = logging.getLogger(__name__)
 SKIP_EXT = (".pdf", ".mp4", ".mp3", ".zip", ".png", ".jpg", ".gif", ".mov")
 SKIP_HOSTS = ("youtube.com", "youtu.be", "x.com", "twitter.com")
 WPM = 230
+MAX_HTML_CHARS = 2_000_000
+
+# lxml (under trafilatura) segfaulted intermittently when pages were parsed from several threads
+# at once (Actions run 42432310634, exit 139). Fetching stays concurrent; parsing is serialised.
+_PARSE_LOCK = threading.Lock()
 
 
 def extract_text(client: httpx.Client, url: str) -> str | None:
@@ -26,7 +32,8 @@ def extract_text(client: httpx.Client, url: str) -> str | None:
     resp = http_get(client, url)
     if "html" not in resp.headers.get("content-type", "html"):
         return None
-    text = trafilatura.extract(resp.text, include_comments=False, include_tables=False)
+    with _PARSE_LOCK:
+        text = trafilatura.extract(resp.text[:MAX_HTML_CHARS], include_comments=False, include_tables=False)
     return text or None
 
 
